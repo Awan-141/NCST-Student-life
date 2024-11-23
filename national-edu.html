@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Course- NCST</title>
+    <link rel="stylesheet" href="mathematics-styles.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="img/nvtc.png" alt="NCST Logo">
+            <span>NCST</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="index.html#specializations">التخصصات</a></li>
+            <li><a href="index.html#courses">الدورات</a></li>
+            <li><a href="index.html#blog">مدونة الطلاب</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>دورة مادة الوطنية</h1>
+        <p>مرحبا بكم في دورة مادة الوطنية هنا يمكنكم ان تجدوا جميع الدورس المطلوبة في هذه الدورة</p>
+        
+        <section class="course-content">
+            <h2>محتوى الدورة</h2>
+            <ul>
+                <li>تاريخ البحرين</li>
+                <li>مكونات المجتمع الدولي</li>
+                <li>جهود مملكة البحرين في الحفظ على السلام</li>
+                <li>دور مجلس التعاون في الخليج العربي</li>
+                <li>مكانة السلم و الامان في مملكة البحرين</li>
+            </ul>
+        </section>
+
+        <section class="study-guides">
+            <h2>الأدلة الدراسية</h2>
+            <ul>
+                <li><a href="https://moodle.nvtc.edu.bh/course/view.php?id=1441">المودل</a></li>
+                <li><a href="https://moodle.nvtc.edu.bh/mod/questionnaire/view.php?id=48798">اقرار المادة</a></li>
+                <li><a href="https://moodle.nvtc.edu.bh/course/view.php?id=1441#coursecontentcollapse4">التقويمات التكوينية الانشطة</a></li>
+                <li><a href="https://sis.nvtc.edu.bh/courseActivityStudent/progress_current_semester/">الإحصاء والاحتمالات</a></li>
+                <li><a href="https://moodle.nvtc.edu.bh/course/view.php?id=1441#coursecontentcollapse5">التقييمات النهائية الاختبارات</a></li>
+            </ul>
+        </section>
+
+        <section class="practice-game">
+            <h2>لعبة الممارسة: اجتياز الشعر</h2>
+            <p>اختبر مهاراتك مع هذه اللعبة التفاعلية التي تغطي مواضيع متنوعة!</p>
+            <div class="math-practice-dash">
+                <h3>اجتياز الشعر</h3>
+                <p>اختبر مهاراتك مع أنواع مختلفة من الأسئلة!</p>
+                <div id="math-practice-game">
+                    <div class="problem-container">
+                        <p id="question" class="question"></p>
+                        <div id="options" class="options"></div>
+                        <input type="text" id="answer-input" class="answer-input" placeholder="أدخل إجابتك" style="display: none;">
+                        <div class="button-container">
+                            <button id="submit-btn" class="submit-btn">إرسال</button>
+                            <button id="next-btn" class="next-btn">السؤال التالي</button>
+                        </div>
+                    </div>
+                    <p id="feedback" class="feedback"></p>
+                    <div id="explanation" class="explanation" style="display: none;">
+                        <h3>الشرح:</h3>
+                        <p id="explanation-text"></p>
+                    </div>
+                    <p id="score" class="score">الدرجة: 0</p>
+                </div>
+            </div>
+        </section>
