@@ -1,0 +1,218 @@
+:root {
+  --formula-bg: #f8f9fa; /* Light Gray for formulas */
+  --primary-color: #6d0eb0; /* Deep Purple */
+  --secondary-color: #cc47d1; /* Vibrant Pink */
+  --accent-color: #f5ce42; /* Light Yellow */
+  --text-light: #ffffff; /* White */
+  --text-dark: #333333; /* Dark Gray */
+  --background-light: #fafafa; /* Soft Gray background */
+  --transition-speed: 0.3s;
+  --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  --hover-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  --btn-padding: 0.8rem 2rem;
+  --btn-border-radius: 30px;
+  --card-padding: 2.5rem;
+  --section-padding: 6rem 5%;
+  --highlight-color: #1abc9c; /* Teal for highlighting */
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', 'Segoe UI', sans-serif; /* Modern font */
+}
+
+body {
+  background: var(--background-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* Navigation Styles */
+nav {
+  background: var(--text-light);
+  padding: 1rem 2rem;
+  box-shadow: var(--card-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo img {
+  height: 40px;
+  transition: transform var(--transition-speed) ease;
+}
+
+.logo img:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color var(--transition-speed) ease;
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--accent-color);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width var(--transition-speed) ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Main Content Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--section-padding);
+}
+
+/* Physics Header */
+.physics-header {
+  background: var(--text-light);
+  border-radius: 12px;
+  padding: var(--card-padding);
+  margin-bottom: 2rem;
+  box-shadow: var(--card-shadow);
+}
+
+h1 {
+  color: var(--primary-color); /* Deep Purple for primary headings */
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+h2 {
+  color: var(--secondary-color); /* Vibrant Pink for secondary headings */
+  font-size: 1.8rem;
+  margin: 2rem 0 1rem;
+  font-weight: 600;
+}
+
+h3 {
+  color: var(--secondary-color); /* Vibrant Pink for subheadings */
+  font-size: 1.4rem;
+  margin: 1.5rem 0 1rem;
+  font-weight: 600;
+}
+
+/* Button Styling */
+button {
+  background: var(--accent-color); /* Light Yellow button background */
+  color: var(--text-light);
+  padding: var(--btn-padding);
+  border: none;
+  border-radius: var(--btn-border-radius);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+}
+
+button:hover {
+  background: #f39c12; /* Darker yellow on hover */
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Formula Display */
+.formula {
+  background: var(--formula-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--accent-color);
+  margin: 1rem 0;
+  font-family: 'Courier New', monospace; /* Monospace for formulas */
+}
+
+/* Result Display */
+.result {
+  background: var(--formula-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+/* Interactive Elements */
+.interactive-element {
+  background: var(--text-light);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--card-shadow);
+  transition: transform var(--transition-speed) ease;
+}
+
+.interactive-element:hover {
+  transform: translateY(-3px); /* Lift effect on hover */
+}
+
+/* Highlighted Elements */
+.highlight {
+  color: var(--highlight-color); /* Teal color for highlighting */
+  font-weight: 600;
+}
+
+/* Notes Styling */
+.note {
+  background: rgba(52, 152, 219, 0.1); /* Light blue background for notes */
+  border-left: 4px solid var(--accent-color); /* Accent border */
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0; /* Rounded corners */
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  background: var(--text-light); /* Card background for tables */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Prevent overflow */
+}
+
+th, td {
+  padding: 1rem; /* Padding for table cells */
+  text-align: left; /* Left align text */
+  border-bottom: 1px solid var(--shadow-color); /* Bottom border */
+}
+
+th {
+  background: var(--secondary-color); /* Vibrant Pink header */
+  color: var(--text-light); /* White text for header */
+}
+
+tr:hover {
+  background: rgba(52, 152, 219, 0.05); /* Highlight row on hover */
+} 

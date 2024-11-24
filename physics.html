@@ -1,27 +1,183 @@
-<section class="section" id="kinetic-particle-model">
-    <h2>2. Kinetic Particle Model of Matter</h2>
-    <p>The Kinetic Particle Model explains that all matter is made up of particles in constant motion. The speed and behavior of these particles vary between solids, liquids, and gases.</p>
-    <div class="card">
-        <h3>Key Points:</h3>
-        <ul>
-            <li>Particles are always moving</li>
-            <li>Higher temperature means faster particle movement</li>
-            <li>Spaces between particles increase from solids to liquids to gases</li>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermal Physics Course - NCST</title>
+    <link rel="stylesheet" href="css/phy.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="img/nvtc.png" alt="NCST Logo">
+            <span>NCST</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#specializations">Specializations</a></li>
+            <li><a href="index.html#courses">Courses</a></li>
+            <li><a href="index.html#blog">Student Blog</a></li>
         </ul>
-    </div>
-    <div class="interactive-area">
-        <h3>Interactive Particle Motion</h3>
-        <p>Select a state of matter and temperature to see how it affects particle motion:</p>
-        <select id="matter-state-select">
-            <option value="solid">Solid</option>
-            <option value="liquid">Liquid</option>
-            <option value="gas">Gas</option>
-        </select>
-        <select id="particle-temperature">
-            <option value="low">Low Temperature</option>
-            <option value="medium" selected>Medium Temperature</option>
-            <option value="high">High Temperature</option>
-        </select>
-        <div id="particle-container"></div>
-    </div>
-</section>
+    </nav>
+
+    <main class="container">
+        <h1>Thermal Physics Course</h1>
+
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>Welcome to the Thermal Physics course. This course covers fundamental concepts such as heat, temperature, and heat transfer. These principles are crucial in various fields, including engineering and climate science.</p>
+            <img src="img/thermal_physics_intro.jpg" alt="Heat Transfer Visualization" class="full-width">
+        </section>
+
+        <section id="course-links">
+            <h2>Course Links</h2>
+            <ul>
+                <li><a href="#heat-and-temperature">Heat and Temperature</a></li>
+                <li><a href="#heat-transfer">Heat Transfer</a></li>
+                <li><a href="#thermal-expansion">Thermal Expansion</a></li>
+                <li><a href="#specific-heat">Specific Heat Capacity</a></li>
+                <li><a href="#latent-heat">Latent Heat and Phase Changes</a></li>
+            </ul>
+        </section>
+
+        <section id="interactive-learning">
+            <h2>Interactive Learning</h2>
+            
+            <div class="interactive-area">
+                <h3>Temperature Scale Converter</h3>
+                <input type="number" id="celsius" placeholder="Celsius">
+                <input type="number" id="fahrenheit" placeholder="Fahrenheit">
+                <input type="number" id="kelvin" placeholder="Kelvin">
+                <button id="convert-temp">Convert</button>
+            </div>
+
+            <div class="interactive-area">
+                <h3>Particle Motion Visualizer</h3>
+                <canvas id="particle-motion-canvas" width="400" height="200"></canvas>
+                <input type="range" id="temperature-slider" min="0" max="100" value="50">
+                <p>Temperature: <span id="temperature-value">50</span>°C</p>
+            </div>
+
+            <section id="heat-transfer">
+                <h2>Heat Transfer Simulation</h2>
+                <canvas id="heat-transfer-canvas" width="400" height="200"></canvas>
+                <button id="start-heat-transfer">Start Heat Transfer</button>
+                <button id="stop-heat-transfer">Stop Heat Transfer</button>
+                <p id="heat-transfer-status">Status: Not started</p>
+                
+                <h3>Explanation of Heat Transfer</h3>
+                <p>Heat transfer always happens from a hotter object or substance to a cooler one. The thermal energy naturally flows from areas of higher temperature to areas of lower temperature, and this occurs through three main methods:</p>
+                <ul>
+                    <li><strong>Conduction:</strong> Heat moves through a solid from the hot end to the cold end when they are in direct contact.<br>
+                    <em>Example:</em> A metal spoon in hot soup gets heated from the soup.</li>
+                    <li><strong>Convection:</strong> Heat moves through a fluid (liquid or gas) as the warmer, less dense fluid rises and the cooler, denser fluid sinks, creating a circulation that spreads the heat.<br>
+                    <em>Example:</em> Hot air rises from a heater, and cooler air moves in to take its place.</li>
+                    <li><strong>Radiation:</strong> Heat is transferred as electromagnetic waves (like infrared radiation) and does not need a medium to travel through.<br>
+                    <em>Example:</em> You feel warmth from the Sun even though space is a vacuum.</li>
+                </ul>
+            </section>
+
+            <div class="interactive-area">
+                <h3>Thermal Expansion</h3>
+                <canvas id="thermal-expansion-canvas" width="400" height="100"></canvas>
+                <input type="range" id="expansion-slider" min="0" max="100" value="0">
+                <p>Temperature: <span id="expansion-temperature">0</span>°C</p>
+            </div>
+
+            <div class="interactive-area">
+                <h3>Specific Heat Capacity Comparison</h3>
+                <canvas id="specific-heat-chart"></canvas>
+            </div>
+
+            <div class="interactive-area">
+                <h3>Phase Changes Simulation</h3>
+                <canvas id="phase-changes-canvas" width="400" height="200"></canvas>
+                <button id="start-phase-changes">Start Simulation</button>
+            </div>
+        </section>
+
+        <section id="quiz">
+            <h2>Thermal Physics Quiz</h2>
+            <div id="quiz-container">
+                <p id="question"></p>
+                <div id="answers"></div>
+                <button id="submit-answer">Submit</button>
+                <p id="result"></p>
+            </div>
+        </section>
+
+        <section id="experiments">
+            <h2>Experiments</h2>
+            <div class="experiment-grid">
+                <div class="experiment-card">
+                    <h3>Measuring Temperature Changes</h3>
+                    <p>Use a thermometer to measure temperature changes in various materials.</p>
+                    <a href="experiment-temperature.html">View Experiment</a>
+                </div>
+                <div class="experiment-card">
+                    <h3>Specific Heat of Water</h3>
+                    <p>Measure the specific heat of water using a calorimeter.</p>
+                    <a href="experiment-specific-heat.html">View Experiment</a>
+                </div>
+                <div class="experiment-card">
+                    <h3>Thermal Expansion of Metals</h3>
+                    <p>Experiment with a ball-and-ring setup to observe how metals expand when heated.</p>
+                    <a href="experiment-thermal-expansion.html">View Experiment</a>
+                </div>
+                <div class="experiment-card">
+                    <h3>Latent Heat and Phase Changes</h3>
+                    <p>Melt ice or boil water, observing energy input and phase changes.</p>
+                    <a href="experiment-latent-heat.html">View Experiment</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="fun-facts">
+            <h2>Fun Facts</h2>
+            <div class="fun-facts-grid">
+                <div class="fun-fact-card">
+                    <h3>Heat Transfer</h3>
+                    <ul>
+                        <li>Metal feels colder than wood at the same temperature because it conducts heat away from your hand more quickly.</li>
+                        <li>Thermal imaging cameras detect infrared radiation emitted by objects, allowing us to "see" heat.</li>
+                    </ul>
+                </div>
+                <div class="fun-fact-card">
+                    <h3>Thermal Expansion</h3>
+                    <ul>
+                        <li>Railway tracks have gaps to allow for expansion on hot days, preventing the tracks from buckling.</li>
+                        <li>Bridges have expansion joints to accommodate the expansion and contraction of materials due to temperature changes.</li>
+                    </ul>
+                </div>
+                <div class="fun-fact-card">
+                    <h3>Phase Changes</h3>
+                    <ul>
+                        <li>Water takes longer to boil at high altitudes due to lower atmospheric pressure.</li>
+                        <li>Dry ice (solid CO2) sublimates directly from a solid to a gas at room temperature and pressure.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="heat-map">
+            <h2>Interactive Heat Map</h2>
+            <canvas id="heatmap" width="500" height="300"></canvas>
+            <p>Hover over the heat map to see temperature readings.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 NCST. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">Facebook</a>
+                <a href="#" aria-label="Twitter">Twitter</a>
+                <a href="#" aria-label="Instagram">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/thermal-physics.js"></script>
+</body>
+</html>
