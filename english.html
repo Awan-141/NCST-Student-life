@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Course - NCST</title>
+    <link rel="stylesheet" href="css/mathematics-styles.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="img/nvtc.png" alt="NCST Logo">
+            <span>NCST</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#specializations">Specializations</a></li>
+            <li><a href="index.html#courses">Courses</a></li>
+            <li><a href="index.html#blog">Student Blog</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>EnglishCourse</h1>
+        <p>Welcome to the Mathematics course at NCST. Here you can learn about various mathematical concepts, access study guides, and practice your skills with our interactive game.</p>
+        
+        <section class="course-content">
+            <h2>Course Content</h2>
+            <ul>
+                <li>listing</li>
+                <li>Reading</li>
+                <li>Writing</li>
+                <li>Speaking</li>
+                <li>IELTS</li>
+            </ul>
+        </section>
+
+        <section class="study-guides">
+            <h2>Study Guides</h2>
+            <ul>
+                <li><a href="https://moodle.nvtc.edu.bh/course/view.php?id=1516">Moodle</a></li>
+                <li><a href="https://moodle.nvtc.edu.bh/mod/url/view.php?id=58394">IELTS online Tests</a></li>
+                <li><a href="https://moodle.nvtc.edu.bh/course/view.php?id=1516#coursecontentcollapse1">Projects</a></li>
+                <li><a href="https://sis.nvtc.edu.bh/courseActivityStudent/progress_current_semester/">SIS</a></li>
+                <li><a href="https://moodle.nvtc.edu.bh/course/view.php?id=1516#coursecontentcollapse12">Final Exam</a></li>
+            </ul>
+        </section>
+
+        <section class="practice-game">
+            <h2>Practice Game: English Read Practice</h2>
+            <p>Test your English skills with this interactive game covering various topics!</p>
+            <div class="math-practice-dash">
+                <h3>English Practice Dash</h3>
+                <p>Test your English skills with various types of problems!</p>
+                <div id="math-practice-game">
+                    <div class="problem-container">
+                        <p id="question" class="question"></p>
+                        <div id="options" class="options"></div>
+                        <input type="text" id="answer-input" class="answer-input" placeholder="Enter your answer" style="display: none;">
+                        <div class="button-container">
+                            <button id="submit-btn" class="submit-btn">Submit</button>
+                            <button id="next-btn" class="next-btn">Next Question</button>
+                        </div>
+                    </div>
+                    <p id="feedback" class="feedback"></p>
+                    <div id="explanation" class="explanation" style="display: none;">
+                        <h3>Explanation:</h3>
+                        <p id="explanation-text"></p>
+                    </div>
+                    <p id="score" class="score">Score: 0</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 NCST. All rights reserved.</p>
+    </footer>
+
+    <script src="js/math-practice-dash.js"></script>
+        
