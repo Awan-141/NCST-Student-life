@@ -1,25 +1,29 @@
-/* Base Styles */
 body {
-    font-family: 'Poppins', Arial, sans-serif; /* Use a more modern font */
-    line-height: 1.7; /* Increased line height for better readability */
+    font-family: 'Poppins', Arial, sans-serif;
+    line-height: 1.6;
     color: #333;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4; /* Light background for better contrast */
+    background-color: #f0f4f8;
+    transition: background-color 0.3s ease; /* Smooth transition for background */
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Navigation Styles */
 nav {
-    background-color: #2c3e50; /* Dark Blue */
+    background-color: #2c3e50;
     color: white;
     padding: 1rem 5%;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease; /* Smooth transition for nav */
 }
 
 .logo {
@@ -30,6 +34,11 @@ nav {
 .logo img {
     height: 50px;
     margin-right: 10px;
+    transition: transform 0.3s ease; /* Logo hover effect */
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* Scale logo on hover */
 }
 
 .nav-links {
@@ -40,57 +49,66 @@ nav {
 .nav-links li {
     display: inline;
     margin-left: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.nav-links li:hover {
+    transform: translateY(-2px);
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
-    transition: color 0.3s ease; /* Smooth color transition */
+    font-weight: 600;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #f5ce42; /* Light Yellow on hover */
+    color: #3498db;
+    text-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
 }
 
-/* Headings */
 h1, h2, h3 {
-    color: #2c3e50; /* Dark Blue for headings */
-    margin-bottom: 1rem; /* Space below headings */
+    color: #2c3e50;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    font-weight: 600;
 }
 
-/* Section Styles */
 .course-content, .study-guides, .practice-game {
     margin-bottom: 40px;
-    background: white; /* White background for sections */
-    border-radius: 8px; /* Rounded corners */
-    padding: 20px; /* Padding inside sections */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-/* List Styles */
 ul {
     padding-left: 20px;
 }
 
 a {
-    color: #3498db; /* Blue links */
+    color: #3498db;
     text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition for links */
 }
 
 a:hover {
-    text-decoration: underline; /* Underline on hover */
+    text-decoration: underline;
+    color: #2980b9; /* Change color on hover */
 }
 
-/* Math Practice Dashboard */
 .math-practice-dash {
-    background-color: #f4f4f4; /* Light Gray */
+    background-color: #ffffff;
     border-radius: 8px;
     padding: 20px;
     margin-top: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Problem Container */
+.math-practice-dash:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
 .problem-container {
     margin-top: 20px;
 }
@@ -100,7 +118,6 @@ a:hover {
     margin-bottom: 10px;
 }
 
-/* Options */
 .options {
     display: flex;
     flex-direction: column;
@@ -114,77 +131,279 @@ a:hover {
     gap: 10px;
 }
 
-/* Input Styles */
 .answer-input {
     width: 100%;
-    padding: 10px; /* Increased padding for better usability */
+    padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    transition: border-color 0.3s ease; /* Smooth border transition */
+    transition: border-color 0.3s ease;
 }
 
 .answer-input:focus {
-    border-color: #3498db; /* Change border color on focus */
-    outline: none; /* Remove default outline */
+    border-color: #3498db;
+    outline: none;
 }
 
-/* Button Container */
 .button-container {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
 }
 
-/* Button Styles */
 .submit-btn, .next-btn {
-    padding: 10px 20px; /* Increased padding */
-    background-color: #3498db; /* Blue button */
+ padding: 10px 20px;
+    background: linear-gradient(90deg, #3498db, #2980b9);
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .submit-btn:hover, .next-btn:hover {
-    background-color: #2980b9; /* Darker blue on hover */
-    transform: translateY(-2px); /* Lift effect on hover */
+    background: linear-gradient(90deg, #2980b9, #1f6391);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow on hover */
 }
 
-/* Feedback Styles */
+.submit-btn:active, .next-btn:active {
+    transform: translateY(0);
+}
+
 .feedback {
     font-weight: bold;
     margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
 .feedback.correct {
-    color: #27ae60; /* Green for correct feedback */
+    color: #27ae60;
+    background-color: #e6f7ef;
+    animation: fadeIn 0.5s; /* Fade-in effect for correct feedback */
 }
 
 .feedback.incorrect {
-    color: #c0392b; /* Red for incorrect feedback */
+    color: #c0392b;
+    background-color: #fae8e8;
+    animation: shake 0.5s; /* Shake effect for incorrect feedback */
 }
 
 .explanation {
-    background-color: #ecf0f1; /* Light Gray for explanations */
-    padding: 10px;
+    background-color: #f1f8ff;
+    padding: 15px;
     border-radius: 4px;
     margin-bottom: 20px;
+    border-left: 4px solid #3498db;
 }
 
-/* Score Styles */
 .score {
     font-weight: bold;
-    color: #2c3e50; /* Dark Blue for scores */
+    color: #2c3e50;
 }
 
-/* Footer Styles */
 footer {
-    background-color: #2c3e50; /* Dark Blue */
+    background-color: #2c3e50;
     color: white;
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for footer */
+    border-top: 4px solid #3498db;
+    transition: background-color 0.3s ease; /* Smooth transition for footer */
+}
+
+.interactive-section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.interactive-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.interactive-section h3 {
+    margin-bottom: 15px;
+    color: #3498db;
+}
+
+.interactive-section canvas {
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+.interactive-section input[type="range"] {
+    width: 100%;
+    margin: 10px 0;
+    -webkit-appearance: none;
+    background: #d1d5db;
+    outline: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.interactive-section input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #3498db;
+    cursor: pointer;
+    border: 4px solid #fff;
+    box-shadow: -407px 0 0 400px #3498db;
+}
+
+.interactive-section label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.interactive-section select {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #f8fafc;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+/* Calculus Grapher Styles */
+.calculus-grapher {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; /* Smooth transition for grapher */
+}
+
+.calculus-grapher:hover {
+    transform: scale(1.02); /* Slight scale effect on hover */
+}
+
+.calculus-grapher h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 10px 20px;
+    background-color: #f0f4f8;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform transition */
+}
+
+.tab:hover {
+    background-color: #e2e8f0;
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.tab.active {
+    background-color: #3498db;
+    color: white;
+}
+
+.graph-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.graph-container > div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.graph-container button,
+.graph-container input {
+    margin: 5px;
+    transition: background-color 0.3s ease; /* Smooth transition for buttons */
+}
+
+.calculus-grapher input[type="text"] {
+    width: 200px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 5px;
+    transition: border-color 0.3s ease; /* Smooth transition for input */
+}
+
+.calculus-grapher input[type="text"]:focus {
+    border-color: #3498db; /* Change border color on focus */
+}
+
+.calculus-grapher label {
+    margin-right: 5px;
+}
+
+.graph-container canvas {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; /* Smooth transition for canvas */
+}
+
+.graph-container canvas:hover {
+    transform: scale(1.02); /* Slight scale effect on hover */
+}
+
+@media (max-width: 768px) {
+    .nav-links li {
+        display: block;
+        margin: 0.5rem 0;
+    }
+
+    .button-container {
+        flex-direction: column;
+    }
+
+    .submit-btn, .next-btn {
+        width: 100%;
+    }
+
+    .graph-container {
+        flex-direction: column;
+    }
 }

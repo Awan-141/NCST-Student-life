@@ -1,82 +1,129 @@
-const poetryQuestions = [
-    {
-        question: "الأسلوب في قول الشاعر: يا شباب الشرق جداً واتحاداً:",
-        type: "mcq",
-        options: ["أسلوب شرط", "أسلوب نداء", "أسلوب استفهام"],
-        answer: "أسلوب نداء",
-        explanation: "الأسلوب هو أسلوب نداء حيث ينادي الشاعر شباب الشرق."
-    }
-];
+// Get references to DOM elements
+const applicationGraph = document.getElementById('application-graph');
+const appInputs = {
+  a: document.getElementById('app-a'),
+  b: document.getElementById('app-b'),
+  c: document.getElementById('app-c'),
+};
+const criticalPointsDisplay = document.getElementById('critical-points');
 
-let currentPoetryQuestionIndex = 0;
-let poetryScore = 0;
-let attemptedPoetryQuestions = [];
+// Update the displayed value of the input
+function updateAppValue(param) {
+  const valueElement = document.getElementById(`${param.id}-value`);
+  if (valueElement) {
+    valueElement.textContent = param.value;
+  }
+}
 
-function displayPoetryQuestion() {
-    const currentQuestion = poetryQuestions[currentPoetryQuestionIndex];
-    document.getElementById('poetry-question').textContent = currentQuestion.question;
-    document.getElementById('poetry-feedback').textContent = '';
-    document.getElementById('poetry-explanation').style.display = 'none';
+// Retrieve and parse input values
+function getAppValues() {
+  return {
+    a: parseFloat(appInputs.a.value) || 0,
+    b: parseFloat(appInputs.b.value) || 0,
+    c: parseFloat(appInputs.c.value) || 0,
+  };
+}
 
-    const optionsContainer = document.getElementById('poetry-options');
-    const answerInput = document.getElementById('poetry-answer-input');
+// Draw the application graph
+function drawApplication() {
+  const ctx = applicationGraph.getContext('2d');
+  ctx.clearRect(0, 0, applicationGraph.width, applicationGraph.height);
+  
+  const { a, b, c } = getAppValues();
+  
+  // Draw axes
+  drawAxes(ctx);
+  
+  // Draw the quadratic function f(x) = ax^2 + bx + c
+  drawQuadraticFunction(ctx, a, b, c);
+}
 
-    optionsContainer.innerHTML = '';
-    optionsContainer.style.display = 'block';
-    answerInput.style.display = 'none';
+// Draw the axes on the graph
+function drawAxes(ctx) {
+  ctx.beginPath();
+  ctx.moveTo(0, applicationGraph.height / 2);
+  ctx.lineTo(applicationGraph.width, applicationGraph.height / 2); // X-axis
+  ctx.moveTo(applicationGraph.width / 2, 0);
+  ctx.lineTo(applicationGraph.width / 2, applicationGraph.height); // Y-axis
+  ctx.strokeStyle = '#ccc';
+  ctx.stroke();
+  
+  // Add numbers to the axes
+  ctx.font = '12px Arial';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  for (let i = -5; i <= 5; i++) {
+    ctx.fillText(i, i * (applicationGraph.width / 10) + applicationGraph.width / 2, applicationGraph.height / 2 + 10);
+    ctx.fillText(i, applicationGraph.width / 2 + 10, applicationGraph.height - i * (applicationGraph.height / 25));
+  }
+}
+
+// Draw the quadratic function and its critical points
+function drawQuadraticFunction(ctx, a, b, c) {
+  ctx.beginPath();
+  let criticalPointsArray = [];
+  
+  for (let x = -5; x <= 5; x += 0.1) {
+    const y = a * x * x + b * x + c;
+    const canvasX = (x + 5) * (applicationGraph.width / 10);
+    const canvasY = applicationGraph.height - (y + 12.5) * (applicationGraph.height / 25);
     
-    currentQuestion.options.forEach(option => {
-        const label = document.createElement('label');
-        label.className = 'poetry-option';
-        label.innerHTML = `
-            <input type="radio" name="poetry-answer" value="${option}">
-            ${option}
-        `;
-        optionsContainer.appendChild(label);
-    });
-}
-
-function handlePoetrySubmit() {
-    const currentQuestion = poetryQuestions[currentPoetryQuestionIndex];
-    const selectedOption = document.querySelector('input[name="poetry-answer"]:checked');
-    const userAnswer = selectedOption ? selectedOption.value : null;
-
-    if (userAnswer) {
-        const isCorrect = userAnswer === currentQuestion.answer;
-        if (isCorrect) {
-            document.getElementById('poetry-feedback').textContent = 'صحيح! عمل رائع!';
-            document.getElementById('poetry-feedback').className = 'poetry-feedback correct';
-            poetryScore++;
-            document.getElementById('poetry-score').textContent = `الدرجة: ${poetryScore}`;
-            document.getElementById('poetry-explanation').style.display = 'block';
-            document.getElementById('poetry-explanation-text').textContent = currentQuestion.explanation;
-        } else {
-            document.getElementById('poetry-feedback').textContent = 'غير صحيح. حاول مرة أخرى!';
-            document.getElementById('poetry-feedback').className = 'poetry-feedback incorrect';
-        }
-
-        attemptedPoetryQuestions.push({
-            question: currentQuestion.question,
-            userAnswer: userAnswer,
-            correctAnswer: currentQuestion.answer,
-            isCorrect: isCorrect
-        });
+    if (x === -5) {
+      ctx.moveTo(canvasX, canvasY);
+    } else {
+      ctx.lineTo(canvasX, canvasY);
     }
+    
+    // Check for critical points
+    const dy = 2 * a * x + b;
+    if (Math.abs(dy) < 0.1) {
+      criticalPointsArray.push({ x, y });
+    }
+  }
+  
+  ctx.strokeStyle = 'blue';
+  ctx.stroke();
+  
+  // Draw critical points
+  drawCriticalPoints(ctx, criticalPointsArray);
+  
+  // Display function equation and critical points info
+  displayFunctionInfo(a, b, c, criticalPointsArray);
 }
 
-function showPoetrySummary() {
-    const summaryContainer = document.getElementById('poetry-summary');
-    summaryContainer.innerHTML = '';
-
-    attemptedPoetryQuestions.forEach((q, index) => {
-        const resultItem = document.createElement('div');
-        resultItem.className = 'poetry-result-item';
-        resultItem.innerHTML = `
-            <strong>السؤال ${index + 1}:</strong> ${q.question}<br>
-            <strong>إجابتك:</strong> ${q.userAnswer}<br>
-            <strong>الإجابة الصحيحة:</strong> ${q.correctAnswer}<br>
-            <strong>${q.isCorrect ? 'صحيح' : 'غير صحيح'}</strong>
-        `;
-        summaryContainer.appendChild(resultItem);
-    });
+// Draw critical points on the graph
+function drawCriticalPoints(ctx, criticalPoints) {
+  criticalPoints.forEach(point => {
+    const canvasX = (point.x + 5) * (applicationGraph.width / 10);
+    const canvasY = applicationGraph.height - (point.y + 12.5) * (applicationGraph.height / 25);
+    ctx.beginPath();
+    ctx.arc(canvasX, canvasY, 5, 0, 2 * Math.PI);
+    ctx.fillStyle = 'red';
+    ctx.fill();
+  });
 }
+
+// Display the function equation and critical points information
+function displayFunctionInfo(a, b, c, criticalPoints) {
+  ctx.fillStyle = 'black';
+  ctx.fillText(`f(x) = ${a}x^2 + ${b}x + ${c}`, 10, 20);
+  ctx.fillText('Red dots: Critical points', 10, 40);
+  
+  if (criticalPoints.length > 0) {
+    criticalPointsDisplay.innerHTML = 'Critical Points:<br>' + 
+      criticalPoints.map(point => `(${point.x.toFixed(2)}, ${point.y.toFixed(2)})`).join('<br>');
+  } else {
+    criticalPointsDisplay.textContent = 'No critical points found';
+  }
+}
+
+// Add event listeners to update values and redraw the graph when inputs change
+Object.values(appInputs).forEach (input => {
+  input.addEventListener('input', (event) => {
+    updateAppValue(event.target);
+    drawApplication();
+  });
+});
+
+// Initial draw call to set the graph based on default values
+drawApplication();

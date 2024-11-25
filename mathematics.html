@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mathematics Course - NCST</title>
     <link rel="stylesheet" href="css/mathematics-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav>
@@ -22,27 +23,98 @@
 
     <div class="container">
         <h1>Mathematics Course</h1>
-        <p>Welcome to the Mathematics course at NCST. Here you can learn about various mathematical concepts, access study guides, and practice your skills with our interactive game.</p>
+        <p>Welcome to the Mathematics course at NCST. Here you can learn about various mathematical concepts, access study guides, and practice your skills with our interactive examples and games.</p>
         
         <section class="course-content">
             <h2>Course Content</h2>
-            <ul>
-                <li>Algebra</li>
-                <li>Calculus</li>
-                <li>Geometry</li>
-                <li>Statistics</li>
-                <li>Differential Equations</li>
-            </ul>
-        </section>
+            
+            <div id="calculus-grapher" class="interactive-section">
+                <h3>Calculus Grapher</h3>
+                <div id="calculus-grapher-component"></div>
+            </div>
+
+            <div id="functions-and-graphs" class="interactive-section">
+                <h3>1. Functions and Their Graphs</h3>
+                <select id="function-type">
+                    <option value="linear">Linear</option>
+                    <option value="quadratic">Quadratic</option>
+                    <option value="exponential">Exponential</option>
+                    <option value="logarithmic">Logarithmic</option>
+                    <option value="trigonometric">Trigonometric</option>
+                </select>
+                <div>
+                    <label for="param-a">Parameter a:</label>
+                    <input type="range" id="param-a" min="-5" max="5" step="0.1" value="1">
+                    <span id="param-a-value">1</span>
+                </div>
+                <div>
+                    <label for="param-b">Parameter b:</label>
+                    <input type="range" id="param-b" min="-5" max="5" step="0.1" value="0">
+                    <span id="param-b-value">0</span>
+                </div>
+                <div>
+                    <label for="param-c">Parameter c:</label>
+                    <input type="range" id="param-c" min="-5" max="5" step="0.1" value="0">
+                    <span id="param-c-value">0</span>
+                </div>
+                <canvas id="function-graph" width="600" height="400"></canvas>
+                <div id="function-equation"></div>
+            </div>
+
+            <div id="limits-and-continuity" class="interactive-section">
+                <h3>2. Limits and Continuity</h3>
+                <div>
+                    <label for="limit-h">Approach h → 0:</label>
+                    <input type="range" id="limit-h" min="0.01" max="2" step="0.01" value="1">
+                    <span id="limit-h-value">1</span>
+                </div>
+                <canvas id="limit-graph" width="600" height="400"></canvas>
+                <div id="limit-value"></div>
+            </div>
+
+            <div id="differentiation" class="interactive-section">
+                <h3>3. Differentiation</h3>
+                <div>
+                    <label for="diff-a">Parameter a:</label>
+                    <input type="range" id="diff-a" min="-5" max="5" step="0.1" value="1">
+                    <span id="diff-a-value">1</span>
+                </div>
+                <canvas id="derivative-graph" width="600" height="400"></canvas>
+                <div id="derivative-equation"></div>
+            </div>
+
+            <div id="application-of-differentiation" class="interactive-section">
+                <h3>4. Application of Differentiation</h3>
+                <div>
+                    <label for="app-a">Parameter a:</label>
+                    <input type="range" id="app-a" min="-5" max="5" step="0.1" value="-1">
+                    <span id="app-a-value">-1</span>
+                </div>
+                <div>
+                    <label for="app-b">Parameter b:</label>
+                    <input type="range" id="app-b" min="-5" max="5" step="0.1" value="0">
+                    <span id="app-b-value">0</span>
+                </div>
+                <div>
+                    <label for="app-c">Parameter c:</label>
+                    <input type="range" id="app-c" min="-5" max="5" step="0.1" value="2">
+                    <span id="app-c-value">2</span>
+                </div>
+                <canvas id="application-graph" width="600" height="400"></canvas>
+                <div id="critical-points"></div>
+            </div>
+
 
         <section class="study-guides">
             <h2>Study Guides</h2>
             <ul>
-                <li><a href="#">Algebra Fundamentals</a></li>
-                <li><a href="#">Introduction to Calculus</a></li>
-                <li><a href="#">Geometry Essentials</a></li>
-                <li><a href="#">Statistics and Probability</a></li>
-                <li><a href="#">Solving Differential Equations</a></li>
+                <li><a href="pdf/math/Functions.pdf">Functions</a></li>
+                <li><a href="pdf/math/Week 1- Inverses of Functions-W1.pdf">Inverses of Functions</a></li>
+                <li><a href="pdf/math/Limits.pdf">Limits</a></li>
+                <li><a href="pdf/math/differentiation.pdf">differentiation</a></li>
+                <li><a href="pdf/math/Product and Quotient-rules.pdf">Product and Quotient-rules</a></li>
+                <li><a href="pdf/math/The Chain Rule .pdf">Chain Rule</a></li>
+               
             </ul>
         </section>
 
@@ -77,5 +149,17 @@
         <p>&copy; 2024 NCST. All rights reserved.</p>
     </footer>
 
-    <script src="js/math-practice-dash.js"></script>
-        
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="js/functions-and-graphs.js"async></script>
+    <script src="js/limits-and-continuity.js"async></script>
+    <script src="js/differentiation.js"async></script>
+    <script src="js/application-of-differentiation.js" async></script>
+    <script src="js/math-practice-dash.js" async></script>
+    <script src="js/mathematics.js"></script>
+    <script src="js/calculus-grapher.js" type="text/babel"></script>
+
+</body>
+</html>
+

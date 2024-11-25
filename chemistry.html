@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemistry Made Easy</title>
+    <link rel="stylesheet" href="css/chemistry.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Chemistry Made Easy</h1>
+        <nav>
+            <ul>
+                <li><a href="#atomic-structure">Atomic Structure</a></li>
+                <li><a href="#bonding">Bonding</a></li>
+                <li><a href="#moles">Moles</a></li>
+                <li><a href="#calculations">Calculations</a></li>
+                <li><a href="#reactions">Reactions</a></li>
+                <li><a href="#equilibrium">Equilibrium</a></li>
+                <li><a href="#acid-carbonate">Acid-Carbonate</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="intro">
+            <h2>Welcome to Chemistry Made Easy</h2>
+            <p>Our goal is to make chemistry fun and accessible for all students. Explore interactive lessons, quizzes, and simulations to enhance your understanding of chemical concepts.</p>
+        </section>
+
+        <section id="atomic-structure">
+            <h2>Atomic Structure and the Periodic Table</h2>
+            <p>Atoms are the building blocks of matter. They consist of protons, neutrons, and electrons. The periodic table organizes elements based on their atomic structure.</p>
+            <input type="text" id="search" placeholder="Search for an element..." />
+            <div id="periodic-table"></div>
+            <div id="element-details" class="element-details hidden"></div>
+            <div id="3d-model-container"></div>
+        </section>
+
+        <section id="bonding">
+            <h2>Bonding and Compound Formation</h2>
+            <p>Chemical bonding involves the sharing or transfer of electrons between atoms. The main types are ionic, covalent, and metallic bonding.</p>
+            <div id="bonding-models"></div>
+            <div id="bond-quiz">
+                <h3>Match the Bond Type to the Example</h3>
+                <!-- Quiz content will be dynamically added here -->
+            </div>
+        </section>
+
+        <section id="moles">
+            <h2>Moles and Relative Mass</h2>
+            <p>The mole is a unit used to express amounts of particles in chemistry. It's related to Avogadro's number and helps us work with very large numbers of atoms or molecules.</p>
+            <div id="mole-calculator">
+                <h3>Mole Calculator</h3>
+                <input type="number" id="mass-input" placeholder="Enter mass (g)">
+                <input type="number" id="molar-mass-input" placeholder="Enter molar mass (g/mol)">
+                <button onclick="calculateMoles()">Calculate Moles</button>
+                <p id="mole-result"></p>
+            </div>
+            <div id="avogadro-visual"></div>
+        </section>
+
+        <section id="calculations">
+            <h2>Chemical Calculations</h2>
+            <div id="gas-calculator">
+                <h3>Gas Volume Calculator</h3>
+                <input type="number" id="moles-gas" placeholder="Enter moles of gas">
+                <input type="number" id="temperature" placeholder="Enter temperature (K)">
+                <input type="number" id="pressure" placeholder="Enter pressure (atm)">
+                <button onclick="calculateGasVolume()">Calculate Volume</button>
+                <p id="volume-result"></p>
+ </div>
+            <div id="concentration-calculator">
+                <h3>Concentration Calculator</h3>
+                <input type="number" id="solute-mass" placeholder="Enter solute mass (g)">
+                <input type="number" id="solution-volume" placeholder="Enter solution volume (L)">
+                <button onclick="calculateConcentration()">Calculate Concentration</button>
+                <p id="concentration-result"></p>
+            </div>
+        </section>
+
+        <section id="reactions">
+            <h2>Chemical Reactions and Energy Changes</h2>
+            <div id="equation-balancer">
+                <h3>Equation Balancer</h3>
+                <input type="text" id="equation-input" placeholder="Enter unbalanced equation">
+                <button onclick="balanceEquation()">Balance Equation</button>
+                <p id="balanced-equation"></p>
+            </div>
+            <div id="energy-diagram"></div>
+        </section>
+
+        <section id="equilibrium">
+            <h2>Reversible Reactions and Equilibrium</h2>
+            <div id="equilibrium-simulator">
+                <h3>Le Chatelier's Principle Simulator</h3>
+                <select id="change-type">
+                    <option value="temperature">Temperature</option>
+                    <option value="pressure">Pressure</option>
+                    <option value="concentration">Concentration</option>
+                </select>
+                <input type="range" id="change-value" min="0" max="100">
+                <button onclick="simulateEquilibrium()">Apply Change</button>
+                <div id="equilibrium-result"></div>
+            </div>
+        </section>
+
+        <section id="acid-carbonate">
+            <h2>Acid-Carbonate Reactions</h2>
+            <div id="reaction-video">
+                <!-- Placeholder for reaction video or animation -->
+            </div>
+            <div id="virtual-lab">
+                <h3>Virtual Acid-Carbonate Lab</h3>
+                <select id="acid-type">
+                    <option value="hcl">Hydrochloric Acid</option>
+                    <option value="h2so4">Sulfuric Acid</option>
+                </select>
+                <select id="carbonate-type">
+                    <option value="caco3">Calcium Carbonate</option>
+                    <option value="nahco3">Sodium Bicarbonate</option>
+                </select>
+                <button onclick="simulateReaction()">Mix Reagents</button>
+                <div id="reaction-result"></div>
+            </div>
+        </section>
+
+        <section id="quizzes">
+            <h2>Interactive Quizzes</h2>
+            <div id="quiz-container">
+                <!-- Quiz questions will be dynamically added here -->
+            </div>
+            <button onclick="startQuiz()">Start Quiz</button>
+        </section>
+
+        <section id="flashcards">
+            <h2>Flashcards</h2>
+            <div id="flashcard-container">
+                <div id="flashcard">
+                    <div id="flashcard-term"></div>
+                    <div id="flashcard-definition"></div>
+                </div>
+                <button onclick="nextFlashcard()">Next Card</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Chemistry Made Easy. All rights reserved.</p>
+    </footer>
+
+    <!-- Models -->
+    <script src="js/periodicTable.js"></script>
+    <script src="js/atomModels.js"></script>
+    <script src="js/bondingModels.js"></script>
+
+    <!-- Calculators -->
+    <script src="js/moleCalculator.js"></script>
+    <script src="js/gasVolumeCalculator.js"></script>
+    <script src="js/equationBalancer.js"></script>
+
+    <!-- Chemical Concepts -->
+    <script src="js/leChatelier.js"></script>
+    <script src="js/acidCarbonate.js"></script>
+
+    <!-- Educational Tools -->
+    <script src="js/quizzes.js"></script>
+    <script src="js/flashcards.js"></script>
+
+    <!-- Additional Scripts -->
+    <script src="js/scriptchm.js"></script>
+    <script src="js/chemistry.js"></script>
+</body>
+</html>

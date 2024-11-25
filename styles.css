@@ -251,7 +251,6 @@ nav.scrolled {
     height: 3px;
     background: var(--secondary-color); /* Gold underline */
 }
-
 .courses-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -270,10 +269,25 @@ nav.scrolled {
     border: 2px solid var(--primary-color); /* Dark Blue border */
 }
 
-.course-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Gradient on hover */
+/* Hover effects for each course color */
+.course-color-1:hover {
+    border-color: #ff5733; /* Example color for course-color-1 */
+}
+
+.course-color-2:hover {
+    border-color: #33c3ff; /* Example color for course-color-2 */
+}
+
+.course-color-3:hover {
+    border-color: #85e085; /* Example color for course-color-3 */
+}
+
+.course-color-4:hover {
+    border-color: #ffcc33; /* Example color for course-color-4 */
+}
+
+.course-color-5:hover {
+    border-color: #ff6699; /* Example color for course-color-5 */
 }
 
 .course-card h3 {
@@ -287,13 +301,7 @@ nav.scrolled {
     margin-bottom: 1.5rem;
 }
 
-.course-icon {
-    
-    width: 80px; /* Slightly larger icon */
-    height: 80px;
-    margin-bottom: 1.5rem;
-    transition: transform var(--transition-speed) ease;
-}
+
 .course-icon {
     width: 80px; /* Slightly larger icon */
     height: 80px;
