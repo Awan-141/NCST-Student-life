@@ -1,72 +1,60 @@
-let scene, camera, renderer, atom, electrons = [];
+function createAtomModel(element) {
+    const container = document.getElementById('3d-model-container');
+    container.innerHTML = '';
 
-function createAtomModel() {
-    scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-    renderer = new THREE.WebGLRenderer();
-    renderer.setSize(300, 300);
-    document.getElementById('atom-canvas').appendChild(renderer.domElement);
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
 
-    const nucleus = new THREE.Mesh(
-        new THREE.SphereGeometry(0.5, 32, 32),
-        new THREE.MeshBasicMaterial({ color: 0xff0000 })
-    );
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    container.appendChild(renderer.domElement);
+
+    // Add lighting
+    const light = new THREE.PointLight(0xffffff, 1, 100);
+    light.position.set(10, 10, 10);
+    scene.add(light);
+    scene.add(new THREE.AmbientLight(0x404040));
+
+    // Create nucleus
+    const nucleusGeometry = new THREE.SphereGeometry(1, 32, 32);
+    const nucleusMaterial = new THREE.MeshPhongMaterial({ color: 0xff0000 });
+    const nucleus = new THREE.Mesh(nucleusGeometry, nucleusMaterial);
     scene.add(nucleus);
 
-    camera.position.z = 5;
+    // Create electron shells
+    const electronCount = element.atomicNumber;
+    const shellRadii = [2, 3, 4];
+    
+    for (let i = 0; i < Math.min(3, Math.ceil(electronCount / 8)); i++) {
+        const shellGeometry = new THREE.TorusGeometry(shellRadii[i], 0.02, 16, 100);
+        const shellMaterial = new THREE.MeshPhongMaterial({ color: 0x0088ff, transparent: true, opacity: 0.3 });
+        const shell = new THREE.Mesh(shellGeometry, shellMaterial);
+        scene.add(shell);
+
+        // Add electrons to shell
+        const electronsInShell = Math.min(8, electronCount - i * 8);
+        for (let j = 0; j < electronsInShell; j++) {
+            const angle = (j / electronsInShell) * Math.PI * 2;
+            const electronGeometry = new THREE.SphereGeometry(0.1, 16, 16);
+            const electronMaterial = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
+            const electron = new THREE.Mesh(electronGeometry, electronMaterial);
+            electron.position.set(
+                Math.cos(angle) * shellRadii[i],
+                Math.sin(angle) * shellRadii[i],
+                0
+            );
+            scene.add(electron);
+        }
+    }
+
+    camera.position.z = 10;
+
+    function animate() {
+        requestAnimationFrame(animate);
+        nucleus.rotation.x += 0.01;
+        nucleus.rotation.y += 0.01;
+        renderer.render(scene, camera);
+    }
 
     animate();
 }
-
-function createElectron() {
-    const electron = new THREE.Mesh(
-        new THREE.SphereGeometry(0.1, 32, 32),
-        new THREE.MeshBasicMaterial({ color: 0x0000ff })
-    );
-    const orbit = new THREE.Object3D();
-    orbit.add(electron);
-    scene.add(orbit);
-    electrons.push({ electron, orbit });
-    return orbit;
-}
-
-function setAtomType(type) {
-    // Remove existing electrons
-    electrons.forEach(e => {
-        scene.remove(e.orbit);
-    });
-    electrons = [];
-
-    if (type === 'hydrogen') {
-        createElectron().rotation.x = Math.PI / 2;
-        document.getElementById('atom-explanation').textContent = 'Hydrogen atom: 1 proton, 1 electron';
-    } else if (type === 'carbon') {
-        for (let i = 0; i < 2; i++) {
-            const orbit = createElectron();
-            orbit.rotation.x = Math.PI / 2;
-            orbit.rotation.y = i * Math.PI / 2;
-        }
-        for (let i = 0; i < 4; i++) {
-            const orbit = createElectron();
-            orbit.rotation.x = i * Math.PI / 2;
-        }
-        document.getElementById('atom-explanation').textContent = 'Carbon atom: 6 protons, 6 neutrons, 6 electrons';
-    }
-}
-
-function animate() {
-    requestAnimationFrame(animate);
-    electrons.forEach(e => {
-        e.orbit.rotation.z += 0.01;
-        e.electron.position.x = Math.sin(e.orbit.rotation.z) * 2;
-        e.electron.position.y = Math.cos(e.orbit.rotation.z) * 2;
-    });
-    renderer.render(scene, camera);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    createAtomModel();
-    document.getElementById('hydrogen').addEventListener('click', () => setAtomType('hydrogen'));
-    document.getElementById('carbon').addEventListener('click', () => setAtomType('carbon'));
-    setAtomType('hydrogen'); // Default to hydrogen
-});

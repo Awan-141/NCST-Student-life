@@ -314,7 +314,7 @@ nav.scrolled {
 
 /* Specific course icons */
 .course-icon.math {
-    background-image: url('path/to/math-logo.png'); /* Replace with actual path */
+    background-image: url('icons/math.png'); /* Replace with actual path */
 }
 
 .course-icon.physics {
@@ -330,19 +330,19 @@ nav.scrolled {
 }
 
 .course-icon.national-edu {
-    background-image: url('path/to/national-edu-logo.png'); /* Replace with actual path */
+    background-image: url('icons/ne.png'); /* Replace with actual path */
 }
 
 .course-icon.islamic {
-    background-image: url('path/to/islamic-logo.png'); /* Replace with actual path */
+    background-image: url('icons/islamic.png'); /* Replace with actual path */
 }
 
-.course-icon.pe {
-    background-image: url('path/to/pe-logo.png'); /* Replace with actual path */
+.course-icon.iot {
+    background-image: url('icons/iot.png'); /* Replace with actual path */
 }
 
 .course-icon.chemistry {
-    background-image: url(''); /* Replace with actual path */
+    background-image: url('icons/chem.png'); /* Replace with actual path */
 }
 .course-card:hover .course-icon {
     transform: scale(1.1); /* Scale effect on hover */

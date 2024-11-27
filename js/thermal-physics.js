@@ -246,24 +246,103 @@ document.getElementById('submit-answer').addEventListener('click', function() {
 
 loadQuestion();
 
+/// ... (previous code remains unchanged)
+
 // Interactive Heat Map
 const heatmap = document.getElementById('heatmap');
 const heatmapCtx = heatmap.getContext('2d');
+let heatmapWidth = heatmap.width;
+let heatmapHeight = heatmap.height;
 
-const gradient = heatmapCtx.createLinearGradient(0, 0, heatmap.width, 0);
-gradient.addColorStop(0, "blue");
-gradient.addColorStop(0.5, "yellow");
-gradient.addColorStop(1, "red");
-heatmapCtx.fillStyle = gradient;
-heatmapCtx.fillRect(0, 0, heatmap.width, heatmap.height);
+// Configuration object for customization
+const heatmapConfig = {
+    minTemp: 0,
+    maxTemp: 100,
+    colors: {
+        cold: "#0000ff",
+        medium: "#ffff00",
+        hot: "#ff0000"
+    }
+};
 
-heatmap.addEventListener('mousemove', (e) => {
-    const x = e.offsetX;
-    const temp = Math.round((x / heatmap.width) * 100);
-    heatmapCtx.clearRect(0, 0, heatmap.width, heatmap.height);
+function drawHeatmap() {
+    const gradient = heatmapCtx.createLinearGradient(0, 0, heatmapWidth, 0);
+    gradient.addColorStop(0, heatmapConfig.colors.cold);
+    gradient.addColorStop(0.5, heatmapConfig.colors.medium);
+    gradient.addColorStop(1, heatmapConfig.colors.hot);
     heatmapCtx.fillStyle = gradient;
-    heatmapCtx.fillRect(0, 0, heatmap.width, heatmap.height);
-    heatmapCtx.font = "16px Arial";
-    heatmapCtx.fillStyle = "black";
-    heatmapCtx.fillText(`Temperature: ${temp}°C`, x, 30);
+    heatmapCtx.fillRect(0, 0, heatmapWidth, heatmapHeight);
+
+    // Draw legend
+    const legendHeight = 20;
+    const legendY = heatmapHeight - legendHeight;
+    heatmapCtx.fillStyle = gradient;
+    heatmapCtx.fillRect(0, legendY, heatmapWidth, legendHeight);
+
+    heatmapCtx.fillStyle = "#000";
+    heatmapCtx.font = "12px Arial";
+    heatmapCtx.fillText(`${heatmapConfig.minTemp}°C`, 5, heatmapHeight - 5);
+    heatmapCtx.fillText(`${heatmapConfig.maxTemp}°C`, heatmapWidth - 30, heatmapHeight - 5);
+}
+
+function showTooltip(x, y, temp) {
+    heatmapCtx.fillStyle = "rgba(0, 0, 0, 0.7)";
+    heatmapCtx.fillRect(x + 10, y - 30, 100, 25);
+    heatmapCtx.fillStyle = "#fff";
+    heatmapCtx.font = "14px Arial";
+    heatmapCtx.fillText(`${temp}°C`, x + 15, y - 10);
+}
+
+function handleHeatmapInteraction(e) {
+    const rect = heatmap.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const temp = Math.round((x / heatmapWidth) * (heatmapConfig.maxTemp - heatmapConfig.minTemp) + heatmapConfig.minTemp);
+
+    drawHeatmap();
+    showTooltip(x, y, temp);
+
+    // Display temperature range
+    const minDisplayTemp = Math.max(heatmapConfig.minTemp, temp - 10);
+    const maxDisplayTemp = Math.min(heatmapConfig.maxTemp, temp + 10);
+    heatmapCtx.fillStyle = "#000";
+    heatmapCtx.font = "14px Arial";
+    heatmapCtx.fillText(`Range: ${minDisplayTemp}°C - ${maxDisplayTemp}°C`, 10, 20);
+}
+
+function resizeHeatmap() {
+    heatmapWidth = heatmap.offsetWidth;
+    heatmapHeight = heatmap.offsetHeight;
+    heatmap.width = heatmapWidth;
+    heatmap.height = heatmapHeight;
+    drawHeatmap();
+}
+
+heatmap.addEventListener('mousemove', handleHeatmapInteraction);
+heatmap.addEventListener('click', (e) => {
+    const rect = heatmap.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const temp = Math.round((x / heatmapWidth) * (heatmapConfig.maxTemp - heatmapConfig.minTemp) + heatmapConfig.minTemp);
+    console.log(`Selected temperature: ${temp}°C`);
+    // You can add more actions here, such as updating other elements on the page
 });
+
+window.addEventListener('resize', resizeHeatmap);
+
+// Initial draw
+resizeHeatmap();
+
+// Add export functionality
+const exportButton = document.createElement('button');
+exportButton.textContent = 'Export Heatmap';
+exportButton.style.marginTop = '10px';
+heatmap.parentNode.insertBefore(exportButton, heatmap.nextSibling);
+
+exportButton.addEventListener('click', () => {
+    const link = document.createElement('a');
+    link.download = 'heatmap.png';
+    link.href = heatmap.toDataURL();
+    link.click();
+});
+
+// ... (rest of the existing code remains unchanged)

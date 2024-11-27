@@ -4,174 +4,1228 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chemistry Made Easy</title>
-    <link rel="stylesheet" href="css/chemistry.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjs@9.4.4/lib/browser/math.min.js"></script>
+    
 </head>
-<body>
-    <header>
-        <h1>Chemistry Made Easy</h1>
-        <nav>
-            <ul>
-                <li><a href="#atomic-structure">Atomic Structure</a></li>
-                <li><a href="#bonding">Bonding</a></li>
-                <li><a href="#moles">Moles</a></li>
-                <li><a href="#calculations">Calculations</a></li>
-                <li><a href="#reactions">Reactions</a></li>
-                <li><a href="#equilibrium">Equilibrium</a></li>
-                <li><a href="#acid-carbonate">Acid-Carbonate</a></li>
-            </ul>
-        </nav>
+<body class="bg-gray-100">
+    <header class="bg-gray-900 text-white py-6">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold text-center mb-4">Chemistry Made Easy</h1>
+            <nav class="flex justify-center space-x-6 text-sm">
+                <a href="#periodic-table" class="hover:text-blue-400">Atomic Structure</a>
+                <a href="#bonding" class="hover:text-blue-400">Bonding</a>
+                <a href="#moles" class="hover:text-blue-400">Moles</a>
+                <a href="#calculations" class="hover:text-blue-400">Calculations</a>
+                <a href="#reactions" class="hover:text-blue-400">Reactions</a>
+                <a href="#equilibrium" class="hover:text-blue-400">Equilibrium</a>
+                <a href="#acid-carbonate" class="hover:text-blue-400">Acid-Carbonate</a>
+                <a href="#quizzes" class="hover:text-blue-400">Quizzes</a>
+                <a href="#flashcards" class="hover:text-blue-400">Flashcards</a>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section id="intro">
-            <h2>Welcome to Chemistry Made Easy</h2>
-            <p>Our goal is to make chemistry fun and accessible for all students. Explore interactive lessons, quizzes, and simulations to enhance your understanding of chemical concepts.</p>
+    <main class="periodic-table">
+        <div class="periodic">
+            <div class="periodic-row">
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">1</div>
+                  <div class="symbol">H</div>
+                  <div class="at_details">hydrogen<br />1.008</div>
+                </div>
+              </div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">2</div>
+                  <div class="symbol">He</div>
+                  <div class="at_details">helium<br />4.0026</div>
+                </div>
+              </div>
+            </div>
+            <div class="periodic-row">
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">3</div>
+                  <div class="symbol">Li</div>
+                  <div class="at_details">lithium<br />6.94</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">4</div>
+                  <div class="symbol">Be</div>
+                  <div class="at_details">beryllium<br />9.0122</div>
+                </div>
+              </div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">5</div>
+                  <div class="symbol">B</div>
+                  <div class="at_details">boron<br />10.81</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">6</div>
+                  <div class="symbol">C</div>
+                  <div class="at_details">carbon<br />12.011</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">7</div>
+                  <div class="symbol">N</div>
+                  <div class="at_details">nidivogen<br />14.007</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">8</div>
+                  <div class="symbol">O</div>
+                  <div class="at_details">oxygen<br />15.999</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">9</div>
+                  <div class="symbol">F</div>
+                  <div class="at_details">fluorine<br />18.998</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">10</div>
+                  <div class="symbol">Ne</div>
+                  <div class="at_details">neon<br />20.180</div>
+                </div>
+              </div>
+            </div>
+            <div class="periodic-row">
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">11</div>
+                  <div class="symbol">Na</div>
+                  <div class="at_details">sodium<br />22.990</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">12</div>
+                  <div class="symbol">Mg</div>
+                  <div class="at_details">magnesium<br />24.305</div>
+                </div>
+              </div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">13</div>
+                  <div class="symbol">Al</div>
+                  <div class="at_details">aluminum<br />26.982</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">14</div>
+                  <div class="symbol">Si</div>
+                  <div class="at_details">silicon<br />28.085</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">15</div>
+                  <div class="symbol">P</div>
+                  <div class="at_details">phosphorus<br />30.974</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">16</div>
+                  <div class="symbol">S</div>
+                  <div class="at_details">sulfur<br />32.06</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">17</div>
+                  <div class="symbol">Cl</div>
+                  <div class="at_details">chlorine<br />35.45</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">18</div>
+                  <div class="symbol">Ar</div>
+                  <div class="at_details">argon<br />39.948</div>
+                </div>
+              </div>
+            </div>
+            <div class="periodic-row">
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">19</div>
+                  <div class="symbol">K</div>
+                  <div class="at_details">potassium<br />39.098</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">20</div>
+                  <div class="symbol">Ca</div>
+                  <div class="at_details">calcium<br />40.078</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">21</div>
+                  <div class="symbol">Sc</div>
+                  <div class="at_details">scandium<br />44.956</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">22</div>
+                  <div class="symbol">Ti</div>
+                  <div class="at_details">titanium<br />47.867</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">23</div>
+                  <div class="symbol">V</div>
+                  <div class="at_details">vanadium<br />50.942</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">24</div>
+                  <div class="symbol">Cr</div>
+                  <div class="at_details">chromium<br />51.996</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">25</div>
+                  <div class="symbol">Mn</div>
+                  <div class="at_details">manganese<br />54.938</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">26</div>
+                  <div class="symbol">Fe</div>
+                  <div class="at_details">iron<br />55.845</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">27</div>
+                  <div class="symbol">Co</div>
+                  <div class="at_details">cobalt<br />58.933</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">28</div>
+                  <div class="symbol">Ni</div>
+                  <div class="at_details">nickel<br />58.693</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">29</div>
+                  <div class="symbol">Cu</div>
+                  <div class="at_details">copper<br />63.546</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">30</div>
+                  <div class="symbol">Zn</div>
+                  <div class="at_details">zinc<br />65.38</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">31</div>
+                  <div class="symbol">Ga</div>
+                  <div class="at_details">gallium<br />69.723</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">32</div>
+                  <div class="symbol">Ge</div>
+                  <div class="at_details">germanium<br />72.63</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">33</div>
+                  <div class="symbol">As</div>
+                  <div class="at_details">arsenic<br />74.922</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">34</div>
+                  <div class="symbol">Se</div>
+                  <div class="at_details">selenium<br />78.96</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">35</div>
+                  <div class="symbol">Br</div>
+                  <div class="at_details">bromine<br />79.904</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">36</div>
+                  <div class="symbol">Kr</div>
+                  <div class="at_details">krypton<br />83.798</div>
+                </div>
+              </div>
+            </div>
+            <div class="periodic-row">
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">37</div>
+                  <div class="symbol">Rb</div>
+                  <div class="at_details">rubidium<br />85.468</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">38</div>
+                  <div class="symbol">Sr</div>
+                  <div class="at_details">sdivontium<br />87.62</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">39</div>
+                  <div class="symbol">Y</div>
+                  <div class="at_details">ytdivium<br />88.906</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">40</div>
+                  <div class="symbol">Zr</div>
+                  <div class="at_details">zirconium<br />91.224</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">41</div>
+                  <div class="symbol">Nb</div>
+                  <div class="at_details">niobium<br />92.906</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">42</div>
+                  <div class="symbol">Mo</div>
+                  <div class="at_details">molybdenum<br />95.96</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">43</div>
+                  <div class="symbol">Tc</div>
+                  <div class="at_details">technetium<br />[97.91]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">44</div>
+                  <div class="symbol">Ru</div>
+                  <div class="at_details">ruthenium<br />101.07</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">45</div>
+                  <div class="symbol">Rh</div>
+                  <div class="at_details">rhodium<br />102.91</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">46</div>
+                  <div class="symbol">Pd</div>
+                  <div class="at_details">palladium<br />106.42</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">47</div>
+                  <div class="symbol">Ag</div>
+                  <div class="at_details">silver<br />107.87</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">48</div>
+                  <div class="symbol">Cd</div>
+                  <div class="at_details">cadmium<br />112.41</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">49</div>
+                  <div class="symbol">In</div>
+                  <div class="at_details">indium<br />114.82</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">50</div>
+                  <div class="symbol">Sn</div>
+                  <div class="at_details">tin<br />118.71</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">51</div>
+                  <div class="symbol">Sb</div>
+                  <div class="at_details">antimony<br />121.76</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">52</div>
+                  <div class="symbol">Te</div>
+                  <div class="at_details">tellurium<br />127.60</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">53</div>
+                  <div class="symbol">I</div>
+                  <div class="at_details">iodine<br />126.90</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">54</div>
+                  <div class="symbol">Xe</div>
+                  <div class="at_details">xenon<br />131.29</div>
+                </div>
+              </div>
+            </div>
+            <div class="periodic-row">
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">55</div>
+                  <div class="symbol">Cs</div>
+                  <div class="at_details">cesium<br />132.91</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">56</div>
+                  <div class="symbol">Ba</div>
+                  <div class="at_details">barium<br />137.33</div>
+                </div>
+              </div>
+              <div class="cell"></div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">72</div>
+                  <div class="symbol">Hf</div>
+                  <div class="at_details">hafnium<br />178.49</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">73</div>
+                  <div class="symbol">Ta</div>
+                  <div class="at_details">tantalum<br />180.95</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">74</div>
+                  <div class="symbol">W</div>
+                  <div class="at_details">tungsten<br />183.84</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">75</div>
+                  <div class="symbol">Re</div>
+                  <div class="at_details">rhenium<br />186.21</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">76</div>
+                  <div class="symbol">Os</div>
+                  <div class="at_details">osmium<br />190.23</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">77</div>
+                  <div class="symbol">Ir</div>
+                  <div class="at_details">iridium<br />192.22</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">78</div>
+                  <div class="symbol">Pt</div>
+                  <div class="at_details">platinum<br />195.08</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">79</div>
+                  <div class="symbol">Au</div>
+                  <div class="at_details">gold<br />196.97</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">80</div>
+                  <div class="symbol">Hg</div>
+                  <div class="at_details">mercury<br />200.59</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">81</div>
+                  <div class="symbol">Tl</div>
+                  <div class="at_details">thallium<br />204.38</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">82</div>
+                  <div class="symbol">Pb</div>
+                  <div class="at_details">lead<br />207.2</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">83</div>
+                  <div class="symbol">Bi</div>
+                  <div class="at_details">bismuth<br />208.98</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">84</div>
+                  <div class="symbol">Po</div>
+                  <div class="at_details">polonium<br />[208.98]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">85</div>
+                  <div class="symbol">At</div>
+                  <div class="at_details">astatine<br />[209.99]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">86</div>
+                  <div class="symbol">Rn</div>
+                  <div class="at_details">radon<br />[222.02]</div>
+                </div>
+              </div>
+            </div>
+            <div class="periodic-row">
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">87</div>
+                  <div class="symbol">Fr</div>
+                  <div class="at_details">francium<br />[223.02]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">88</div>
+                  <div class="symbol">Ra</div>
+                  <div class="at_details">radium<br />[226.03]</div>
+                </div>
+              </div>
+              <div class="cell"></div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">104</div>
+                  <div class="symbol">Rf</div>
+                  <div class="at_details">rutherfordium<br />[265.12]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">105</div>
+                  <div class="symbol">Db</div>
+                  <div class="at_details">dubnium<br />[268.13]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">106</div>
+                  <div class="symbol">Sg</div>
+                  <div class="at_details">seaborgium<br />[271.13]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">107</div>
+                  <div class="symbol">Bh</div>
+                  <div class="at_details">bohrium<br />[270]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">108</div>
+                  <div class="symbol">Hs</div>
+                  <div class="at_details">hassium<br />[277.15]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">109</div>
+                  <div class="symbol">Mt</div>
+                  <div class="at_details">meitnerium<br />[276.15]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">110</div>
+                  <div class="symbol">Ds</div>
+                  <div class="at_details">darmstadtium<br />[281.16]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">111</div>
+                  <div class="symbol">Rg</div>
+                  <div class="at_details">roentgenium<br />[280.16]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">112</div>
+                  <div class="symbol">Cn</div>
+                  <div class="at_details">copernicium<br />[285.17]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">113</div>
+                  <div class="symbol">Uut</div>
+                  <div class="at_details">unundivium<br />[284.18]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">114</div>
+                  <div class="symbol">Fl</div>
+                  <div class="at_details">flerovium<br />[289.19]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">115</div>
+                  <div class="symbol">Uup</div>
+                  <div class="at_details">ununpentium<br />[288.19]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">116</div>
+                  <div class="symbol">Lv</div>
+                  <div class="at_details">livermorium<br />[293]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">117</div>
+                  <div class="symbol">Uus</div>
+                  <div class="at_details">ununseptium<br />[294]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">118</div>
+                  <div class="symbol">Uuo</div>
+                  <div class="at_details">ununoctium<br />[294]</div>
+                </div>
+              </div>
+            </div>
+            <div class="periodic-row"></div>
+            <div class="periodic-row">
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">57</div>
+                  <div class="symbol">La</div>
+                  <div class="at_details">lanthanum<br />138.91</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">58</div>
+                  <div class="symbol">Ce</div>
+                  <div class="at_details">cerium<br />140.12</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">59</div>
+                  <div class="symbol">Pr</div>
+                  <div class="at_details">praseodymium<br />140.91</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">60</div>
+                  <div class="symbol">Nd</div>
+                  <div class="at_details">neodymium<br />144.24</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">61</div>
+                  <div class="symbol">Pm</div>
+                  <div class="at_details">promethium<br />[144.91]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">62</div>
+                  <div class="symbol">Sm</div>
+                  <div class="at_details">samarium<br />150.36</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">63</div>
+                  <div class="symbol">Eu</div>
+                  <div class="at_details">europium<br />151.96</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">64</div>
+                  <div class="symbol">Gd</div>
+                  <div class="at_details">gadolinium<br />157.25</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">65</div>
+                  <div class="symbol">Tb</div>
+                  <div class="at_details">terbium<br />158.93</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">66</div>
+                  <div class="symbol">Dy</div>
+                  <div class="at_details">dysprosium<br />162.50</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">67</div>
+                  <div class="symbol">Ho</div>
+                  <div class="at_details">holmium<br />164.93</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">68</div>
+                  <div class="symbol">Er</div>
+                  <div class="at_details">erbium<br />167.26</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">69</div>
+                  <div class="symbol">Tm</div>
+                  <div class="at_details">thulium<br />168.93</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">70</div>
+                  <div class="symbol">Yb</div>
+                  <div class="at_details">ytterbium<br />173.05</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">71</div>
+                  <div class="symbol">Lu</div>
+                  <div class="at_details">lutetium<br />174.97</div>
+                </div>
+              </div>
+            </div>
+            <div class="periodic-row">
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell"></div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">89</div>
+                  <div class="symbol">Ac</div>
+                  <div class="at_details">actinium<br />[227.03]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">90</div>
+                  <div class="symbol">Th</div>
+                  <div class="at_details">thorium<br />232.04</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">91</div>
+                  <div class="symbol">Pa</div>
+                  <div class="at_details">protactinium<br />231.04</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">92</div>
+                  <div class="symbol">U</div>
+                  <div class="at_details">uranium<br />238.03</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">93</div>
+                  <div class="symbol">Np</div>
+                  <div class="at_details">neptunium<br />[237.05]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">94</div>
+                  <div class="symbol">Pu</div>
+                  <div class="at_details">plutonium<br />[244.06]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">95</div>
+                  <div class="symbol">Am</div>
+                  <div class="at_details">americium<br />[243.06]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">96</div>
+                  <div class="symbol">Cm</div>
+                  <div class="at_details">curium<br />[247.07]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">97</div>
+                  <div class="symbol">Bk</div>
+                  <div class="at_details">berkelium<br />[247.07]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">98</div>
+                  <div class="symbol">Cf</div>
+                  <div class="at_details">californium<br />[251.08]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">99</div>
+                  <div class="symbol">Es</div>
+                  <div class="at_details">einsteinium<br />[252.08]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">100</div>
+                  <div class="symbol">Fm</div>
+                  <div class="at_details">fermium<br />[257.10]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">101</div>
+                  <div class="symbol">Md</div>
+                  <div class="at_details">mendelevium<br />[258.10]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">102</div>
+                  <div class="symbol">No</div>
+                  <div class="at_details">nobelium<br />[259.10]</div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="element">
+                  <div class="at_num">103</div>
+                  <div class="symbol">Lr</div>
+                  <div class="at_details">lawrencium<br />[262.11]</div>
+                </div>
+              </div>
+            </div>
+            <div style="clear: both;"></div>
+          </div>
+          <style>
+            /* Base Styles */
+            body {
+                font-family: Arial, sans-serif;
+            }
+            
+            .periodic {
+                position: relative;
+                height: 100px; /* Reduced height */
+                margin-right: -1px;
+                text-shadow: none;
+            }
+            
+            .periodic-row {
+                clear: both;
+                height: 5%; /* Reduced height */
+            }
+            
+            .cell {
+                float: left;
+                position: relative;
+                width: 5.55%;
+                height: 100%;
+            }
+            
+            .element {
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 1px;
+                right: 1px;
+                box-sizing: border-box;
+                box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
+                border: 1px solid rgba(0, 0, 0, 0.05);
+                text-align: center;
+                cursor: default;
+                pointer-events: none;
+                transition: all 200ms ease;
+                background-color: rgba(0, 128, 128, 0.6);
+            }
+            
+            .cell:hover .element {
+                border-color: rgba(0, 0, 0, 0.1);
+                transform: scale(1.5); /* Reduced scale */
+                z-index: 1;
+                background-color: rgba(0, 128, 128, 0.9);
+            }
+            
+            .at_num,
+            .at_details {
+                position: absolute;
+                font-size: 2px; /* Reduced font size */
+                color: rgba(255, 255, 255, 0.5);
+                opacity: 0;
+            }
+            
+            .at_num {
+                top: 2px; /* Adjusted position */
+                right: 2px; /* Adjusted position */
+            }
+            
+            .symbol {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                right: 0;
+                margin-top: -2px; /* Adjusted position */
+                font-size: 4px; /* Reduced font size */
+                line-height: 1;
+                height: 4px; /* Reduced height */
+                color: rgba(255, 255, 255, 0.9);
+            }
+            
+            .at_details {
+                bottom: 2px; /* Adjusted position */
+                left: 0;
+                right: 0;
+            }
+            
+            /* Media Queries */
+            @media (min-width: 600px) {
+                .periodic {
+                    height: 230px; /* Reduced height */
+                    margin-right: -2px;
+                }
+            
+                .element {
+                    right: 2px;
+                    bottom: 2px;
+                }
+            
+                .at_num,
+                .at_details {
+                    font-size: 2px; /* Reduced font size */
+                    opacity: 1;
+                }
+            
+                .symbol {
+                    margin-top: -8.5px; /* Adjusted position */
+                    font-size: 8px; /* Reduced font size */
+                    font-weight: bold;
+                    line-height: 15px; /* Adjusted line height */
+                    height: 15px; /* Adjusted height */
+                    color: rgba(255, 255, 255, 0.75);
+                    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+                }
+            }
+            
+            @media (min-width: 800px) {
+                .periodic {
+                    height: 270px; /* Reduced height */
+                }
+            
+                .symbol {
+                    font-size: 10px; /* Reduced font size */
+                }
+            }
+            
+            @media (min-width: 992px) {
+                .periodic {
+                    height: 340px; /* Reduced height */
+                }
+            
+                .at_num,
+                .at_details {
+                    font-size: 3px; /* Reduced font size */
+                }
+            
+                .symbol {
+                    font-size: 12px; /* Reduced font size */
+                }
+            }
+            
+            @media (min-width: 1200px) {
+                .periodic {
+                    height: 400px; /* Reduced height */
+                }
+            
+                .at_num,
+                .at_details {
+                    font-size: 3px; /* Reduced font size */
+                }
+            
+                .symbol {
+                    font-size: 15px; /* Reduced font size */
+                }
+            }
+        </style>
+<script>
+    const cells = document.querySelectorAll('.cell');
+    const modal = document.getElementById('modal');
+    const elementName = document.getElementById('element-name');
+    const elementDetails = document.getElementById('element-details');
+    const closeModal = document.getElementById('close');
+
+    cells.forEach(cell => {
+        cell.addEventListener('click', () => {
+            const element = cell.getAttribute('data-element');
+            const details = cell.getAttribute('data-details');
+            elementName.textContent = element;
+            elementDetails.innerHTML = details;
+            modal.style.display = 'flex';
+        });
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+</script>            
         </section>
 
-        <section id="atomic-structure">
-            <h2>Atomic Structure and the Periodic Table</h2>
-            <p>Atoms are the building blocks of matter. They consist of protons, neutrons, and electrons. The periodic table organizes elements based on their atomic structure.</p>
-            <input type="text" id="search" placeholder="Search for an element..." />
-            <div id="periodic-table"></div>
-            <div id="element-details" class="element-details hidden"></div>
-            <div id="3d-model-container"></div>
-        </section>
-
-        <section id="bonding">
-            <h2>Bonding and Compound Formation</h2>
-            <p>Chemical bonding involves the sharing or transfer of electrons between atoms. The main types are ionic, covalent, and metallic bonding.</p>
-            <div id="bonding-models"></div>
-            <div id="bond-quiz">
-                <h3>Match the Bond Type to the Example</h3>
-                <!-- Quiz content will be dynamically added here -->
+        <section id="bonding" class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-bold mb-6">Bonding and Compound Formation</h2>
+            <p class="mb-4">Chemical bonding involves the sharing or transfer of electrons between atoms. The main types are ionic, covalent, and metallic bonding.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="calculator">
+                    <h3 class="text-xl font-semibold mb-4">Bond Type Identifier</h3>
+                    <select id="element1" class="w-full p-2 border rounded mb-2">
+                        <option value="">Select first element</option>
+                    </select>
+                    <select id="element2" class="w-full p-2 border rounded mb-2">
+                        <option value="">Select second element</option>
+                    </select>
+                    <button onclick="identifyBond()">Identify Bond Type</button>
+                    <div id="bond-result" class="mt-4"></div>
+                </div>
             </div>
         </section>
 
-        <section id="moles">
-            <h2>Moles and Relative Mass</h2>
-            <p>The mole is a unit used to express amounts of particles in chemistry. It's related to Avogadro's number and helps us work with very large numbers of atoms or molecules.</p>
-            <div id="mole-calculator">
-                <h3>Mole Calculator</h3>
-                <input type="number" id="mass-input" placeholder="Enter mass (g)">
-                <input type="number" id="molar-mass-input" placeholder="Enter molar mass (g/mol)">
+        <section id="moles" class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-bold mb-6">Moles and Relative Mass</h2>
+            <div class="calculator">
+                <h3 class="text-xl font-semibold mb-4">Mole Calculator</h3>
+                <input type="number" id="mass-input" placeholder="Mass (g)" step="0.01">
+                <input type="number" id="molar-mass-input" placeholder="Molar mass (g/mol)" step="0.01">
                 <button onclick="calculateMoles()">Calculate Moles</button>
-                <p id="mole-result"></p>
-            </div>
-            <div id="avogadro-visual"></div>
-        </section>
-
-        <section id="calculations">
-            <h2>Chemical Calculations</h2>
-            <div id="gas-calculator">
-                <h3>Gas Volume Calculator</h3>
-                <input type="number" id="moles-gas" placeholder="Enter moles of gas">
-                <input type="number" id="temperature" placeholder="Enter temperature (K)">
-                <input type="number" id="pressure" placeholder="Enter pressure (atm)">
-                <button onclick="calculateGasVolume()">Calculate Volume</button>
-                <p id="volume-result"></p>
- </div>
-            <div id="concentration-calculator">
-                <h3>Concentration Calculator</h3>
-                <input type="number" id="solute-mass" placeholder="Enter solute mass (g)">
-                <input type="number" id="solution-volume" placeholder="Enter solution volume (L)">
-                <button onclick="calculateConcentration()">Calculate Concentration</button>
-                <p id="concentration-result"></p>
+                <div id="moles-result" class="mt-4"></div>
             </div>
         </section>
 
-        <section id="reactions">
-            <h2>Chemical Reactions and Energy Changes</h2>
-            <div id="equation-balancer">
-                <h3>Equation Balancer</h3>
-                <input type="text" id="equation-input" placeholder="Enter unbalanced equation">
+        <section id="calculations" class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-bold mb-6">Chemical Calculations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="calculator">
+                    <h3 class="text-xl font-semibold mb-4">Gas Volume Calculator</h3>
+                    <input type="number" id="pressure-input" placeholder="Pressure (atm)" step="0.1">
+                    <input type="number" id="temperature-input" placeholder="Temperature (K)" step="0.1">
+                    <input type="number" id="moles-input" placeholder="Number of moles" step="0.01">
+                    <button onclick="calculateGasVolume()">Calculate Volume</button>
+                    <div id="volume-result" class="mt-4"></div>
+                </div>
+                <div class="calculator">
+                    <h3 class="text-xl font-semibold mb-4">Concentration Calculator</h3>
+                    <input type="number" id="solute-mass" placeholder="Solute mass (g)" step="0.01">
+                    <input type="number" id="solution-volume" placeholder="Solution volume (L)" step="0.01">
+                    <button onclick="calculateConcentration()">Calculate Concentration</button>
+                    <div id="concentration-result" class="mt-4"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reactions" class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-bold mb-6">Chemical Reactions and Energy Changes</h2>
+            <div class="calculator">
+                <h3 class="text-xl font-semibold mb-4">Equation Balancer</h3>
+                <input type="text" id="equation-input" placeholder="Enter chemical equation (e.g., H2 + O2 = H2O)">
                 <button onclick="balanceEquation()">Balance Equation</button>
-                <p id="balanced-equation"></p>
+                <div id="balanced-equation" class="mt-4"></div>
             </div>
-            <div id="energy-diagram"></div>
         </section>
 
-        <section id="equilibrium">
-            <h2>Reversible Reactions and Equilibrium</h2>
-            <div id="equilibrium-simulator">
-                <h3>Le Chatelier's Principle Simulator</h3>
-                <select id="change-type">
-                    <option value="temperature">Temperature</option>
-                    <option value="pressure">Pressure</option>
-                    <option value="concentration">Concentration</option>
+        <section id="equilibrium" class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-bold mb-6">Reversible Reactions and Equilibrium</h2>
+            <div class="calculator">
+                <h3 class="text-xl font-semibold mb-4">Le Chatelier's Principle Simulator</h3>
+                <select id="reaction-type" class="w-full p-2 border rounded mb-2">
+                    <option value="exothermic">Exothermic Reaction</option>
+                    <option value="endothermic">Endothermic Reaction</option>
                 </select>
-                <input type="range" id="change-value" min="0" max="100">
+                <input type="range" id="temperature-slider" min="0" max="100" value="50">
                 <button onclick="simulateEquilibrium()">Apply Change</button>
-                <div id="equilibrium-result"></div>
+                <div id="equilibrium-result" class="mt-4"></div>
             </div>
         </section>
 
-        <section id="acid-carbonate">
-            <h2>Acid-Carbonate Reactions</h2>
-            <div id="reaction-video">
-                <!-- Placeholder for reaction video or animation -->
-            </div>
-            <div id="virtual-lab">
-                <h3>Virtual Acid-Carbonate Lab</h3>
-                <select id="acid-type">
+        <section id="acid-carbonate" class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-bold mb-6">Acid-Carbonate Reactions</h2>
+            <div class="calculator">
+                <h3 class="text-xl font-semibold mb-4">Virtual Acid-Carbonate Lab</h3>
+                <select id="acid-type" class="w-full p-2 border rounded mb-2">
                     <option value="hcl">Hydrochloric Acid</option>
                     <option value="h2so4">Sulfuric Acid</option>
+                    <option value="ch3cooh">Acetic Acid</option>
                 </select>
-                <select id="carbonate-type">
+                <select id="carbonate-type" class="w-full p-2 border rounded mb-2">
                     <option value="caco3">Calcium Carbonate</option>
-                    <option value="nahco3">Sodium Bicarbonate</option>
+                    <option value="na2co3">Sodium Carbonate</option>
+                    <option value="k2co3">Potassium Carbonate</option>
                 </select>
-                <button onclick="simulateReaction()">Mix Reagents</button>
-                <div id="reaction-result"></div>
+                <button onclick="performReaction()">Mix Reagents</button>
+                <div id="reaction-result" class="mt-4"></div>
             </div>
         </section>
 
-        <section id="quizzes">
-            <h2>Interactive Quizzes</h2>
-            <div id="quiz-container">
-                <!-- Quiz questions will be dynamically added here -->
+        <section id="quizzes" class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-bold mb-6">Interactive Quizzes</h2>
+            <div id="quiz-container" class="space-y-4">
+                <button onclick="startQuiz()" class="bg-blue-600 text-white px-6 py-2 rounded">Start Quiz</button>
             </div>
-            <button onclick="startQuiz()">Start Quiz</button>
         </section>
 
-        <section id="flashcards">
-            <h2>Flashcards</h2>
-            <div id="flashcard-container">
-                <div id="flashcard">
-                    <div id="flashcard-term"></div>
-                    <div id="flashcard-definition"></div>
+        <section id="flashcards" class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-bold mb-6">Flashcards</h2>
+            <div class="flex flex-col items-center">
+                <div class="flashcard mb-4" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front bg-white">
+                            <div id="flashcard-term"></div>
+                        </div>
+                        <div class="flashcard-back">
+                            <div id="flashcard-definition"></div>
+                        </div>
+                    </div>
                 </div>
-                <button onclick="nextFlashcard()">Next Card</button>
+                <button onclick="nextFlashcard()" class="bg-blue-600 text-white px-6 py-2 rounded">Next Card</button>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Chemistry Made Easy. All rights reserved.</p>
+    <footer class="bg-gray-900 text-white py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 Chemistry Made Easy. All rights reserved.</p>
+        </div>
     </footer>
 
-    <!-- Models -->
     <script src="js/periodicTable.js"></script>
     <script src="js/atomModels.js"></script>
-    <script src="js/bondingModels.js"></script>
-
-    <!-- Calculators -->
-    <script src="js/moleCalculator.js"></script>
-    <script src="js/gasVolumeCalculator.js"></script>
-    <script src="js/equationBalancer.js"></script>
-
-    <!-- Chemical Concepts -->
-    <script src="js/leChatelier.js"></script>
-    <script src="js/acidCarbonate.js"></script>
-
-    <!-- Educational Tools -->
+    <script src="js/calculations.js"></script>
+    <script src="js/reactions.js"></script>
     <script src="js/quizzes.js"></script>
     <script src="js/flashcards.js"></script>
-
-    <!-- Additional Scripts -->
-    <script src="js/scriptchm.js"></script>
-    <script src="js/chemistry.js"></script>
 </body>
 </html>
