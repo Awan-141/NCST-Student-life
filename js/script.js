@@ -1,221 +1,186 @@
-// Main Page Script
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize AOS for smooth scroll animations
-  AOS.init({
-      duration: 1200,
-      once: true,
-      offset: 100,
-      easing: 'ease-in-out'
+  const specializationCards = document.querySelectorAll('.specialization-card');
+  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  const header = document.querySelector('.main-header');
+  const sections = document.querySelectorAll('section');
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const courseCards = document.querySelectorAll('.course-card');
+
+  // Smooth scrolling for internal links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
   });
 
-  // Enhanced Navigation
-  const header = document.querySelector('header');
-  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+  // Mobile menu toggle with animation
+  mobileMenuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+    mobileMenuToggle.classList.toggle('active');
+    
+    if (navLinks.classList.contains('show')) {
+      gsap.from('.nav-links li', {
+        opacity: 0,
+        y: 20,
+        stagger: 0.1,
+        duration: 0.5,
+        ease: 'power2.out'
+      });
+    }
+  });
+
+  // Animate header on scroll
   let lastScrollTop = 0;
-
-  // Smooth scroll navigation
-  navLinks.forEach(link => {
-      link.addEventListener('click', function(e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href');
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-              const headerOffset = 80;
-              const elementPosition = targetElement.getBoundingClientRect().top;
-              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-              window.scrollTo({
-                  top: offsetPosition,
-                  behavior: 'smooth'
-              });
-
-              // Active state for navigation
-              navLinks.forEach(navLink => navLink.classList.remove('active'));
-              this.classList.add('active');
-          }
-      });
-  });
-
-  // Header scroll effect
   window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      
-      // Add/remove header background
-      if (currentScroll > 50) {
-          header.classList.add('scrolled');
-      } else {
-          header.classList.remove('scrolled');
-      }
-
-      // Hide/show header on scroll
-      if (currentScroll > lastScrollTop && currentScroll > 500) {
-          header.style.transform = 'translateY(-100%)';
-      } else {
-          header.style.transform = 'translateY(0)';
-      }
-      lastScrollTop = currentScroll;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop) {
+      header.style.transform = 'translateY(-100%)';
+    } else {
+      header.style.transform = 'translateY(0)';
+    }
+    lastScrollTop = scrollTop;
   });
 
-  // Theme Toggle with smooth transition
-  const themeToggle = document.querySelector('.theme-toggle');
-  const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-  
-  // Set initial theme based on system preference or saved preference
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) {
-      document.body.classList.toggle('dark-mode', savedTheme === 'dark');
-  } else {
-      document.body.classList.toggle('dark-mode', prefersDarkScheme.matches);
+  // Animate sections on scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in');
+        sectionObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(section => {
+    sectionObserver.observe(section);
+  });
+
+  // Specialization card hover effect with GSAP
+  specializationCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      gsap.to(card, {
+        y: -10,
+        boxShadow: '0 15px 30px rgba(0,0,0,0.2)',
+        duration: 0.3
+      });
+    });
+
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, {
+        y: 0,
+        boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
+        duration: 0.3
+      });
+    });
+  });
+
+  // Course filtering with animation
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.dataset.filter;
+      
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      gsap.to(courseCards, {
+        opacity: 0,
+        y: 20,
+        duration: 0.3,
+        stagger: 0.1,
+        onComplete: () => {
+          courseCards.forEach(card => {
+            if (filter === 'all' || card.dataset.category === filter) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+
+          gsap.to(courseCards, {
+            opacity: 1,
+            y: 0,
+            duration: 0.3,
+            stagger: 0.1
+          });
+        }
+      });
+    });
+  });
+
+  // Animate cloud icon
+  const cloudIcon = document.querySelector('.cloud-computing .card-icon i');
+  if (cloudIcon) {
+    gsap.to(cloudIcon, {
+      y: -5,
+      duration: 1,
+      repeat: -1,
+      yoyo: true,
+      ease: 'power1.inOut'
+    });
   }
 
-  themeToggle.addEventListener('click', () => {
-      // Create and animate theme transition overlay
-      const overlay = document.createElement('div');
-      overlay.classList.add('theme-transition-overlay');
-      document.body.appendChild(overlay);
-
-      // Toggle theme with animation
-      requestAnimationFrame(() => {
-          overlay.classList.add('active');
-          
-          setTimeout(() => {
-              document.body.classList.toggle('dark-mode');
-              const isDark = document.body.classList.contains('dark-mode');
-              localStorage.setItem('theme', isDark ? 'dark' : 'light');
-              
-              // Update theme toggle icon
-              themeToggle.innerHTML = isDark ? '☀️' : '🌙';
-              
-              setTimeout(() => {
-                  overlay.classList.remove('active');
-                  setTimeout(() => overlay.remove(), 500);
-              }, 200);
-          }, 200);
+  // Animate news cards on hover
+  const newsCards = document.querySelectorAll('.news-card');
+  newsCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      gsap.to(card, {
+        y: -5,
+        boxShadow: '0 15px 30px rgba(0,0,0,0.2)',
+        duration: 0.3
       });
+    });
+
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, {
+        y: 0,
+        boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
+        duration: 0.3
+      });
+    });
   });
 
-  // Mobile Menu Toggle
-  const menuToggle = document.querySelector('.menu-toggle');
-  const mobileMenu = document.querySelector('.nav-links');
-
-  menuToggle?.addEventListener('click', () => {
-      menuToggle.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
-      
-      // Prevent body scroll when menu is open
-      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+  // Animate CTA button
+  const ctaButton = document.querySelector('.cta-button');
+  ctaButton.addEventListener('mouseenter', () => {
+    gsap.to(ctaButton, {
+      scale: 1.05,
+      duration: 0.3
+    });
   });
 
-  // Close mobile menu when clicking outside
-  document.addEventListener('click', (e) => {
-      if (mobileMenu?.classList.contains('active') && 
-          !mobileMenu.contains(e.target) && 
-          !menuToggle.contains(e.target)) {
-          mobileMenu.classList.remove('active');
-          menuToggle.classList.remove('active');
-          document.body.style.overflow = '';
+  ctaButton.addEventListener('mouseleave', () => {
+    gsap.to(ctaButton, {
+      scale: 1,
+      duration: 0.3
+    });
+  });
+
+  // Error handling
+  window.addEventListener('error', (e) => {
+    console.error('An error occurred:', e.error);
+    // You can add more error handling logic here, such as sending errors to a logging service
+  });
+});
+
+// Preloader animation
+window.addEventListener('load', () => {
+  const preloader = document.querySelector('.preloader');
+  if (preloader) {
+    gsap.to(preloader, {
+      opacity: 0,
+      duration: 1,
+      onComplete: () => {
+        preloader.style.display = 'none';
       }
-  });
-
-  // Scroll Progress Indicator
-  const progressBar = document.createElement('div');
-  progressBar.classList.add('scroll-progress');
-  document.body.appendChild(progressBar);
-
-  window.addEventListener('scroll', () => {
-      const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrolled = (window.scrollY / windowHeight) * 100;
-      progressBar.style.width = `${scrolled}%`;
-  });
-
-  // Back to Top Button with smooth animation
-  const backToTop = document.createElement('button');
-  backToTop.classList.add('back-to-top');
-  backToTop.innerHTML = '↑';
-  document.body.appendChild(backToTop);
-
-  window.addEventListener('scroll', () => {
-      if (window.scrollY > 500) {
-          backToTop.classList.add('visible');
-      } else {
-          backToTop.classList.remove('visible');
-      }
-  });
-
-  backToTop.addEventListener('click', () => {
-      window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-      });
-  });
-
-  // Hero Section Parallax Effect
-  const hero = document.querySelector('.hero');
-  if (hero) {
-      window.addEventListener('scroll', () => {
-          const scrolled = window.pageYOffset;
-          const rate = scrolled * 0.5;
-          hero.style.transform = `translate3d(0, ${rate}px, 0)`;
-      });
+    });
   }
-
-  // Lazy Loading Images
-  const lazyImages = document.querySelectorAll('img[data-src]');
-  const imageObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-          if (entry.isIntersecting) {
-              const img = entry.target;
-              img.src = img.dataset.src;
-              img.classList.add('loaded');
-              observer.unobserve(img);
-          }
-      });
-  });
-
-  lazyImages.forEach(img => imageObserver.observe(img));
-
-  // Smooth Reveal Animation for Sections
-  const revealElements = document.querySelectorAll('.reveal');
-  const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-          if (entry.isIntersecting) {
-              entry.target.classList.add('revealed');
-          }
-      });
-  }, {
-      threshold: 0.15
-  });
-
-  revealElements.forEach(element => revealObserver.observe(element));
-
-  // Page Load Animation
-  window.addEventListener('load', () => {
-      document.body.classList.add('loaded');
-      
-      // Animate hero section elements
-      const heroElements = document.querySelectorAll('.hero *');
-      heroElements.forEach((element, index) => {
-          setTimeout(() => {
-              element.classList.add('appear');
-          }, 100 * index);
-      });
-  });
-
-  // Handle form submissions with animation
-  const forms = document.querySelectorAll('form');
-  forms.forEach(form => {
-      form.addEventListener('submit', (e) => {
-          e.preventDefault();
-          form.classList.add('submitted');
-          
-          // Simulate form submission
-          setTimeout(() => {
-              form.classList.add('success');
-              setTimeout(() => {
-                  form.classList.remove('submitted', 'success');
-                  form.reset();
-              }, 2000);
-          }, 1000);
-      });
-  });
 });

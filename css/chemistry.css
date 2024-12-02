@@ -1,93 +1,176 @@
-/* Global Styles */
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --background-color: #f0f0f0;
+  --text-color: #333;
+  --card-background: #fff;
+}
+
 body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-  }
-  
-  /* Header Styles */
-  header {
-    background-color: #0b0c10;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  header h1 {
-    margin: 0;
-    font-size: 36px;
-  }
-  
-  /* Periodic Table Styles */
-  .periodic-table {
-    display: grid;
-    grid-template-columns: repeat(18, 1fr);
-    grid-gap: 10px;
-    padding: 20px;
-  }
-  
-  .element {
-    background-color: #0abab5;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .element:hover {
-    background-color: #008b8b;
-  }
-  
-  .element h2 {
-    margin: 0;
-    font-size: 18px;
-  }
-  
-  .element p {
-    margin: 5px 0 0 0;
-    font-size: 14px;
-  }
-  
-  /* Calculator Styles */
-  .calculator {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .calculator h2 {
-    margin-top: 0;
-  }
-  
-  .calculator input,
-  .calculator button {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+  --primary-color: #2980b9;
+  --secondary-color: #27ae60;
+  --background-color: #2c3e50;
+  --text-color: #ecf0f1;
+  --card-background: #34495e;
+}
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+#main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  margin-right: 1rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  margin-left: 1rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--secondary-color);
+}
+
+#theme-toggle, #menu-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+section {
+  background-color: var(--card-background);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: var(--primary-color);
+  margin-top: 0;
+}
+
+.interactive-element {
+  margin-top: 1rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+select, input, button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  background-color: var(--card-background);
+  color: var(--text-color);
+}
+
+button {
+  background-color: var(--secondary-color);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--primary-color);
+}
+
+footer {
+  background-color: var(--primary-color);
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  #menu-toggle {
     display: block;
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
   }
-  
-  .calculator button {
-    background-color: #0abab5;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--primary-color);
+    padding: 1rem;
   }
-  
-  .calculator button:hover {
-    background-color: #008b8b;
+
+  .nav-links.show {
+    display: flex;
   }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .periodic-table {
-      grid-template-columns: repeat(9, 1fr);
-    }
+
+  .nav-links li {
+    margin: 0.5rem 0;
   }
+}

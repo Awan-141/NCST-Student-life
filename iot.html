@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IOT Course - NCST</title>
+    <link rel="stylesheet" href="css/iot.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="img/nvtc.png" alt="NCST Logo">
+            <span>NCST</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#specializations">Specializations</a></li>
+            <li><a href="index.html#courses">Courses</a></li>
+            <li><a href="index.html#blog">Student Blog</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>IOT Course</h1>
+        <p>Welcome to the IOT course at NCST. Here you can learn about various mathematical concepts, access study guides, and practice your skills with our interactive game.</p>
+        
+        <section class="course-content">
+            <h2>Course Content</h2>
+            <ul>
+                <li>raspberry pi</li>
+                <li>Arduino</li>
+                <li>Python</li>
+                <li>Coding</li>
+            </ul>
+        </section>
+
+        <section class="study-guides">
+            <h2>Study Guides</h2>
+            <ul>
+                <li><a href="https://moodle.nvtc.edu.bh/course/view.php?id=1539">Moodle</a></li>
+                <li><a href="https://moodle.nvtc.edu.bh/mod/url/view.php?id=50940">Get Started with Raspberry Pie</a></li>
+                <li><a href="https://moodle.nvtc.edu.bh/course/view.php?id=1539#coursecontentcollapse3">Asigments</a></li>
+                <li><a href="https://sis.nvtc.edu.bh/courseActivityStudent/progress_current_semester/">SIS</a></li>
+                <li><a href="https://moodle.nvtc.edu.bh/course/view.php?id=1539#coursecontentcollapse10">Tests</a></li>
+            </ul>
+        </section>
+
+        <section class="practice-game">
+            <h2>Practice Game: IOT Practice</h2>
+            <p>Test your IOT skills with this interactive game covering various topics!</p>
+            <div class="math-practice-dash">
+                <h3>IOT Practice Dash</h3>
+                <p>Test your IOT skills with various types of problems!</p>
+                <div id="math-practice-game">
+                    <div class="problem-container">
+                        <p id="question" class="question"></p>
+                        <div id="options" class="options"></div>
+                        <input type="text" id="answer-input" class="answer-input" placeholder="Enter your answer" style="display: none;">
+                        <div class="button-container">
+                            <button id="submit-btn" class="submit-btn">Submit</button>
+                            <button id="next-btn" class="next-btn">Next Question</button>
+                        </div>
+                    </div>
+                    <p id="feedback" class="feedback"></p>
+                    <div id="explanation" class="explanation" style="display: none;">
+                        <h3>Explanation:</h3>
+                        <p id="explanation-text"></p>
+                    </div>
+                    <p id="score" class="score">Score: 0</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 NCST. All rights reserved.</p>
+    </footer>
+
+    <script src="js/math-practice-dash.js"></script>
+        

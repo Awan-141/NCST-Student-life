@@ -35,6 +35,15 @@ nav {
     color: white;
     text-decoration: none;
 }
+.element[data-category="alkali-metal"] { background-color: #e74c3c; }
+.element[data-category="alkaline-earth-metal"] { background-color: #e67e22; }
+.element[data-category="transition-metal"] { background-color: #f1c40f; }
+.element[data-category="post-transition-metal"] { background-color: #2ecc71; }
+.element[data-category="metalloid"] { background-color: #1abc9c; }
+.element[data-category="nonmetal"] { background-color: #3498db; }
+.element[data-category="halogen"] { background-color: #9b59b6; }
+.element[data-category="noble-gas"] { background-color: #34495e; }
+
 h1, h2, h3 {
     color: #2c3e50;
 }
