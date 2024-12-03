@@ -3,110 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Chemistry: CHM301</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Chemistry Notes</title>
     <link rel="stylesheet" href="css/chemistry.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
-    <div id="particles-js"></div>
-    <header>
-        <nav id="main-nav">
-            <div class="logo">
-                <img src="/placeholder.svg?height=50&width=50" alt="NCST Logo">
-                <span>NCST Advanced Chemistry</span>
-            </div>
-            <button id="menu-toggle" aria-label="Toggle menu">☰</button>
-            <ul class="nav-links">
-                <li><a href="#atoms-periodic-table">Atoms and Periodic Table</a></li>
-                <li><a href="#mole-ram">Mole and RAM</a></li>
-                <li><a href="#avogadro-number">Avogadro's Number</a></li>
-                <li><a href="#mole-concept">Mole Concept</a></li>
-                <li><a href="#molar-gas-volume">Molar Gas Volume</a></li>
-                <li><a href="#empirical-molecular">Empirical and Molecular Formulae</a></li>
-                <li><a href="#percent-composition">Percent Composition</a></li>
-                <li><a href="#chemical-reactions">Chemical Reactions</a></li>
-                <li><a href="#reversible-reactions">Reversible Reactions</a></li>
-                <li><a href="#effect-conditions">Effect of Conditions</a></li>
-                <li><a href="#acid-carbonate">Acid-Carbonate Reactions</a></li>
-            </ul>
-            <button id="theme-toggle" aria-label="Toggle theme">🌓</button>
+    <nav>
+        <div class="logo">
+            <img src="img/nvtc.png" alt="NCST Logo">
+            <span>NCST</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#specializations">Specializations</a></li>
+            <li><a href="index.html#courses">Courses</a></li>
+            <li><a href="index.html#blog">Student Blog</a></li>
+        </ul>
+    </nav>
+            <button id="theme-toggle" class="theme-toggle">
+                Toggle Theme
+            </button>
         </nav>
     </header>
 
     <main>
-        <section id="atoms-periodic-table">
+        <section id="atoms" class="section">
             <h2>Atoms and the Periodic Table</h2>
-            <p>The periodic table organizes elements based on their atomic number, electron configuration, and recurring chemical properties.</p>
-            <div class="interactive-element" id="periodic-table-simulator"></div>
+            
+            <!-- Interactive Periodic Table -->
+            <div class="periodic-table-container">
+                <div id="periodic-table" class="periodic-table"></div>
+                <div id="element-details" class="element-details">
+                    <h3>Click an element to see details</h3>
+                </div>
+            </div>
+
+            <!-- 3D Atomic Structure Viewer -->
+            <div id="atomic-structure-container"></div>
+            
+            <div class="content">
+                <h3>Atomic Structure</h3>
+                <ul>
+                    <li><strong>Protons:</strong> Positively charged particles in the nucleus</li>
+                    <li><strong>Neutrons:</strong> Neutral particles in the nucleus</li>
+                    <li><strong>Electrons:</strong> Negatively charged particles orbiting the nucleus</li>
+                </ul>
+            </div>
         </section>
 
-        <section id="mole-ram">
+        <section id="mole" class="section">
             <h2>Mole and Relative Atomic Mass (RAM)</h2>
-            <p>The mole is a unit used in chemistry to measure the amount of substance. Relative Atomic Mass (RAM) is the weighted average mass of an element's atoms.</p>
-            <div class="interactive-element" id="mole-calculator"></div>
+            <div id="mole-calculator" class="calculator"></div>
+            <div class="content">
+                <p><strong>RAM = (Σ (isotopic mass × abundance)) / 100</strong></p>
+                <div class="example">
+                    <p>Example: Chlorine has two isotopes, Cl-35 (75%) and Cl-37 (25%)</p>
+                    <p>RAM = (35 × 0.75) + (37 × 0.25) = 35.5</p>
+                </div>
+            </div>
         </section>
 
-        <section id="avogadro-number">
-            <h2>Avogadro's Number and Particles in Elements</h2>
-            <p>Avogadro's number (6.022 × 10²³) defines the number of particles in one mole of a substance.</p>
-            <div class="interactive-element" id="avogadro-simulator"></div>
+        <section id="avogadro" class="section">
+            <h2>Avogadro's Number</h2>
+            <div id="avogadro-simulator" class="simulator"></div>
+            <div class="content">
+                <p>Avogadro's number (6.022 × 10²³) defines the number of particles in one mole of a substance.</p>
+            </div>
         </section>
 
-        <section id="mole-concept">
-            <h2>Mole Concept</h2>
-            <p>The mole concept is fundamental to understanding chemical reactions and simplifying calculations involving chemical amounts.</p>
-            <div class="interactive-element" id="mole-concept-calculator"></div>
+        <section id="gas" class="section">
+            <h2>Molar Gas Volume</h2>
+            <div id="gas-volume-calculator" class="calculator"></div>
+            <div class="content">
+                <p>At standard temperature and pressure (STP), one mole of any gas occupies 22.4 L.</p>
+            </div>
         </section>
 
-        <section id="molar-gas-volume">
-            <h2>Molar Gas Volume, Gas Volumes, and Solution Concentrations</h2>
-            <p>Molar gas volume refers to the volume occupied by one mole of an ideal gas at standard temperature and pressure (STP), typically 22.4 L.</p>
-            <div class="interactive-element" id="gas-volume-calculator"></div>
+        <section id="formulas" class="section">
+            <h2>Empirical and Molecular Formulas</h2>
+            <div id="empirical-formula-calculator" class="calculator"></div>
         </section>
 
-        <section id="empirical-molecular">
-            <h2>Empirical and Molecular Formulae</h2>
-            <p>Empirical formula represents the simplest whole-number ratio of elements in a compound, while the molecular formula gives the exact number of atoms of each element in a molecule.</p>
-            <div class="interactive-element" id="formula-calculator"></div>
+        <section id="composition" class="section">
+            <h2>Percent Composition</h2>
+            <div id="percent-composition-calculator" class="calculator"></div>
         </section>
 
-        <section id="percent-composition">
-            <h2>Percent Composition of Elements in a Compound</h2>
-            <p>Percent composition refers to the percentage by mass of each element in a compound.</p>
-            <div class="interactive-element" id="percent-composition-calculator"></div>
-        </section>
-
-        <section id="chemical-reactions">
+        <section id="reactions" class="section">
             <h2>Chemical Reactions and Energy Changes</h2>
-            <p>Chemical reactions involve the rearrangement of atoms to form new substances. These reactions can be exothermic or endothermic.</p>
-            <div class="interactive-element" id="reaction-simulator"></div>
+            <div id="chemical-reaction-simulator" class="simulator"></div>
         </section>
 
-        <section id="reversible-reactions">
-            <h2>Reversible Chemical Reactions and Equilibrium</h2>
-            <p>In reversible reactions, the products can react to form the original reactants, leading to a dynamic equilibrium.</p>
-            <div class="interactive-element" id="equilibrium-simulator"></div>
+        <section id="equilibrium" class="section">
+            <h2>Reversible Reactions and Equilibrium</h2>
+            <div id="equilibrium-simulator" class="simulator"></div>
+            <div id="le-chatelier-simulator" class="simulator"></div>
         </section>
 
-        <section id="effect-conditions">
-            <h2>Effect of Conditions on Reversible Reactions</h2>
-            <p>Le Chatelier's principle states that if a system at equilibrium is disturbed, it will shift to counteract the change and restore equilibrium.</p>
-            <div class="interactive-element" id="le-chatelier-simulator"></div>
-        </section>
-
-        <section id="acid-carbonate">
-            <h2>Acid-Carbonate Reactions and Carbon Dioxide Production</h2>
-            <p>Acid-carbonate reactions involve the reaction of an acid with a carbonate to produce carbon dioxide, water, and a salt.</p>
-            <div class="interactive-element" id="acid-carbonate-simulator"></div>
+        <section id="quiz" class="section">
+            <h2>Test Your Knowledge</h2>
+            <div class="quiz-container"></div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 NCST Advanced Chemistry Course. All rights reserved.</p>
+        <p>© 2024 Chemistry Learning Platform. All rights reserved.</p>
     </footer>
 
-    <script src="js/chemistry-script.js"></script>
+    <script src="js/atomic-structure.js" type="module"></script>
+    <script src="js/chemistry-script.js" type="module"></script>
 </body>
 </html>
