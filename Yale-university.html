@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <header class="main-header">
+        <nav class="main-nav">
+            <div class="logo">
+                <img src="img/nvtc.png" alt="NCST Logo">
+                
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#specializations">Specializations</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#blog">Student Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <title>News Article - Nasser Center AI Research</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+     /* Header and Navigation */
+  .main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: var(--transition);
+  }
+  
+  .main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .logo img {
+    width: 400px;
+    height: 50px;
+    object-fit: contain;
+  }
+  
+  .logo span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  
+  .nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+  }
+  
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary);
+    transition: var(--transition);
+  }
+  
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+  
+  .mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  
+  .mobile-menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: var(--primary);
+    margin: 5px 0;
+    transition: var(--transition);
+  }
+      
+        .news-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .news-title {
+            font-size: 32px;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+        .news-meta {
+            font-size: 14px;
+            color: #666;
+        }
+        .news-images {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .news-images img {
+            width: 48%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .news-images img:hover {
+            transform: scale(1.05);
+        }
+        .news-content {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #444;
+        }
+        .news-content p {
+            margin-bottom: 20px;
+        }
+        .highlight {
+            background-color: #e6f3ff;
+            padding: 20px;
+            border-left: 4px solid #1e3a8a;
+            margin: 30px 0;
+        }
+        .back-to-home {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #1e3a8a;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .back-to-home:hover {
+            background-color: #152c6e;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- News Header -->
+        <header class="news-header">
+            <h1 class="news-title">Nasser Center Hosts Yale University Delegation to Discuss AI Research</h1>
+            <div class="news-meta">
+                <span>Published on: <time datetime="2024-11-27">November 27, 2024</time></span>
+                <span> | </span>
+                <span>By: NCST Staff</span>
+            </div>
+        </header>
+        
+        <!-- News Images -->
+        <div class="news-images">
+            <img src="img/Yale-university.jpg" alt="Delegation Visit at Nasser Center">
+            <img src="img/Yale University-2.jpeg" alt="Yale University and Nasser Center researchers">
+        </div>
+        
+        <!-- News Content -->
+        <div class="news-content">
+            <p>The Nasser Center for Research and Development in Artificial Intelligence, part of the Nasser Scientific and Technical Center, welcomed a delegation of researchers and students from the Jackson Institute for Global Affairs at Yale University during their visit to Bahrain.</p>
+            
+            <div class="highlight">
+                <p><strong>Key Highlights:</strong></p>
+                <ul>
+                    <li>Showcased Bahrain's pioneering efforts in AI applications</li>
+                    <li>Discussed recent breakthroughs in generative AI, computer vision, and language models</li>
+                    <li>Emphasized the importance of international scientific collaboration</li>
+                </ul>
+            </div>
+            
+            <p>During the tour, the team was briefed on Bahrain's pioneering efforts in AI applications, including the creation of AI solutions for different public and private sector organizations, and keeping up with the most recent breakthroughs in the area, such as generative AI, computer vision, and massive language models to create smart solutions in a variety of industries.</p>
+            
+            <p>The two sides also highlighted the necessity of scientific collaboration and the sharing of skills in this sector, as well as information transfer between worldwide universities and research institutes, in order to boost innovation and develop AI solutions to serve and improve diverse industries.</p>
+            
+            <p>This visit underlines Bahrain's regional leadership in AI research and development, as well as the interest of worldwide academic institutions in learning more about the Bahraini experience. The center's goal is to enhance scientific communication and position the Kingdom as a hub for cultural and economic interaction, therefore contributing to the growth of the innovation and creative ecosystem on both a local and worldwide scale.</p>
+        </div>
+
+        <a href="index.html" class="back-to-home">Back to Home</a>
+    </div>
+
+    <script>
+        // Add a simple animation to the images
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.news-images img');
+            images.forEach(img => {
+                img.addEventListener('mouseover', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                img.addEventListener('mouseout', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -19,27 +19,17 @@
             <li><a href="index.html#blog">Student Blog</a></li>
         </ul>
     </nav>
-            <button id="theme-toggle" class="theme-toggle">
-                Toggle Theme
-            </button>
-        </nav>
-    </header>
+  
 
     <main>
         <section id="atoms" class="section">
             <h2>Atoms and the Periodic Table</h2>
-            
-            <!-- Interactive Periodic Table -->
             <div class="periodic-table-container">
                 <div id="periodic-table" class="periodic-table"></div>
                 <div id="element-details" class="element-details">
                     <h3>Click an element to see details</h3>
                 </div>
             </div>
-
-            <!-- 3D Atomic Structure Viewer -->
-            <div id="atomic-structure-container"></div>
-            
             <div class="content">
                 <h3>Atomic Structure</h3>
                 <ul>
@@ -52,61 +42,75 @@
 
         <section id="mole" class="section">
             <h2>Mole and Relative Atomic Mass (RAM)</h2>
-            <div id="mole-calculator" class="calculator"></div>
             <div class="content">
-                <p><strong>RAM = (Σ (isotopic mass × abundance)) / 100</strong></p>
+                <p><strong>Mole:</strong> A mole is a unit used to count particles (atoms, molecules, or ions) in chemistry. It is defined as the amount of substance containing the same number of particles as there are atoms in 12 grams of carbon-12. This number is called <em>Avogadro's Number</em>, which is \(6.022 \times 10^{23}\).</p>
+                <p><strong>Relative Atomic Mass (RAM):</strong> The RAM of an element is the weighted average mass of all its isotopes, measured relative to 1/12th the mass of a carbon-12 atom.</p>
+                <p><strong>Formula:</strong></p>
+                <p>\(\text{RAM} = \frac{\Sigma (\text{isotopic mass} \times \text{abundance})}{100}\)</p>
                 <div class="example">
-                    <p>Example: Chlorine has two isotopes, Cl-35 (75%) and Cl-37 (25%)</p>
-                    <p>RAM = (35 × 0.75) + (37 × 0.25) = 35.5</p>
+                    <p><strong>Example:</strong> Chlorine has two isotopes: Cl-35 (75%) and Cl-37 (25%).</p>
+                    <p>\(\text{RAM} = (35 \times 0.75) + (37 \times 0.25) = 35.5\)</p>
+                    <p>The average relative atomic mass of chlorine is **35.5**.</p>
                 </div>
             </div>
         </section>
 
         <section id="avogadro" class="section">
             <h2>Avogadro's Number</h2>
-            <div id="avogadro-simulator" class="simulator"></div>
             <div class="content">
-                <p>Avogadro's number (6.022 × 10²³) defines the number of particles in one mole of a substance.</p>
+                <p><strong>Avogadro's Number:</strong> Avogadro's number (\(6.022 \times 10^{23}\)) defines the number of particles in one mole of a substance.</p>
+                <p>For example, 1 mole of water (\(H_2O\)) contains \(6.022 \times 10^{23}\) molecules of water.</p>
             </div>
         </section>
 
         <section id="gas" class="section">
             <h2>Molar Gas Volume</h2>
-            <div id="gas-volume-calculator" class="calculator"></div>
             <div class="content">
-                <p>At standard temperature and pressure (STP), one mole of any gas occupies 22.4 L.</p>
+                <p><strong>Molar Gas Volume:</strong> At standard temperature and pressure (STP), one mole of any gas occupies 22.4 liters.</p>
+                <p>This means that 1 mole of oxygen gas (\(O_2\)) or nitrogen gas (\(N_2\)) will occupy the same volume of 22.4 L under STP conditions.</p>
             </div>
         </section>
 
         <section id="formulas" class="section">
             <h2>Empirical and Molecular Formulas</h2>
-            <div id="empirical-formula-calculator" class="calculator"></div>
+            <div class="content">
+                <p>Empirical formulas represent the simplest whole-number ratio of elements in a compound. Molecular formulas give the actual number of each type of atom in a molecule.</p>
+            </div>
         </section>
 
         <section id="composition" class="section">
             <h2>Percent Composition</h2>
-            <div id="percent-composition-calculator" class="calculator"></div>
+            <div class="content">
+                <p>Percent composition represents the percentage by mass of each element in a compound.</p>
+            </div>
         </section>
 
         <section id="reactions" class="section">
             <h2>Chemical Reactions and Energy Changes</h2>
-            <div id="chemical-reaction-simulator" class="simulator"></div>
+            <div class="content">
+                <p>Chemical reactions involve breaking bonds in reactants and forming new bonds in products. Energy is absorbed or released during these processes.</p>
+            </div>
         </section>
 
         <section id="equilibrium" class="section">
             <h2>Reversible Reactions and Equilibrium</h2>
-            <div id="equilibrium-simulator" class="simulator"></div>
-            <div id="le-chatelier-simulator" class="simulator"></div>
+            <div class="content">
+                <p>Reversible reactions can proceed in both forward and reverse directions. At equilibrium, the rates of the forward and reverse reactions are equal.</p>
+                <p><strong>Example:</strong> The reaction between nitrogen dioxide and dinitrogen tetroxide:</p>
+                <p>\(2NO_2 \leftrightarrow N_2O_4\)</p>
+            </div>
         </section>
 
         <section id="quiz" class="section">
             <h2>Test Your Knowledge</h2>
-            <div class="quiz-container"></div>
+            <div class="content">
+                <p>Review what you've learned with interactive quizzes!</p>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>© 2024 Chemistry Learning Platform. All rights reserved.</p>
+       
     </footer>
 
     <script src="js/atomic-structure.js" type="module"></script>

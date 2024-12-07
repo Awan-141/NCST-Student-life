@@ -6,22 +6,29 @@
     <meta name="description" content="NCST: Shaping Futures, Transforming Lives. Discover excellence in education and personal growth.">
     <title>NCST - Nurturing Futures</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+    
 </head>
 <body>
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
     <header class="main-header">
         <nav class="main-nav">
             <div class="logo">
-                <img src="img/nvtc.png" alt="NCST Logo" width="50" height="50">
-                <span>NCST</span>
+                <img src="img/nvtc.png" alt="NCST Logo">
             </div>
             <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+           
+
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#specializations">Specializations</a></li>
@@ -30,23 +37,28 @@
             </ul>
         </nav>
     </header>
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <span class="close" id="closePopup">&times;</span>
-            <h2>Welcome to NCST!</h2>
-            <p>Subscribe to our newsletter for the latest updates and offers.</p>
-            <input type="email" placeholder="Enter your email" />
-            <button>Subscribe</button>
+
+    <main> 
+        </head>
+        <body>
+            <section id="home" class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">NCST: Shaping Futures, Transforming Lives</h1>
+                    <p class="hero-subtitle">Discover excellence in education and personal growth</p>
+                </div>
+            </section>
+        
+            
+        
+            <div id="popup" class="popup" aria-hidden="true">
+                <div class="popup-content" role="dialog" aria-labelledby="popupTitle">
+                    <h2 id="popupTitle">Important Notice</h2>
+            <p>This website is an English 301 project and not an official NCST website.</p>
+            <button class="btn-understand" id="btnUnderstand">I Understand</button>
         </div>
     </div>
+
     <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1 class="hero-title">NCST: Shaping Futures, Transforming Lives</h1>
-                <p class="hero-subtitle">Discover excellence in education and personal growth</p>
-            
-            </div>
-        </section>
 
         <section class="news-section" id="news">
             <div class="container">
@@ -54,38 +66,42 @@
                     <div class="news-category">OUR ARTICLES</div>
                     <h2 class="news-title">Latest News & Blog</h2>
                     <p class="news-description">A comprehensive summary of the most trending blog posts & news articles from the best Educational institution in Bahrain.</p>
-                    <a href="#" class="more-news-btn">More News</a>
+                    
                 </div>
 
                 <div class="news-grid">
-                    <article class="news-card">
-                        <img src="img\Yale-university.jpg" alt="Student Council Meeting" loading="lazy">
+                    <a href="Yale-university.html" class="news-card"> 
+                        <div class="news-card-image">
+                            <img src="img/Yale-university.jpg" alt="Student Council Meeting" loading="lazy">
+                        </div>
                         <div class="news-card-date">27 November 2024</div>
                         <div class="news-card-content">
                             <span class="news-tag">News</span>
-                            <h3 class="news-card-title">Student Council Meeting Discusses Academic Initiatives</h3>
+                            <h3 class="news-card-title">Nasser Center Hosts Yale University Delegation to Discuss AI Research</h3>
                         </div>
-                    </article>
+                    </a>
 
-                    <article class="news-card">
-                        <img src="img\NCST-CEO-Bahrain-Ambassador-to-Italy-AC-Milan-Legends-1.jpg" alt="International Partnership" loading="lazy">
+                    <a href="AC.html" class="news-card">
+                        <div class="news-card-image">
+                            <img src="img/NCST-CEO-Bahrain-Ambassador-to-Italy-AC-Milan-Legends-1.jpg" alt="International Partnership" loading="lazy">
+                        </div>
                         <div class="news-card-date">12 November 2024</div>
                         <div class="news-card-content">
                             <span class="news-tag">News</span>
                             <h3 class="news-card-title">NCST Signs New International Partnership</h3>
                         </div>
-                    </article>
+                    </a>
 
-                    <article class="news-card">
-                        <img src="img\Tree-Week-Image-1.jpg" alt="Campus Green Initiative" loading="lazy">
+                    <a href="Tree-Week.html" class="news-card">
+                        <div class="news-card-image">
+                            <img src="img/Tree-Week-Image-1.jpg" alt="Campus Green Initiative" loading="lazy">
+                        </div>
                         <div class="news-card-date">31 October 2024</div>
                         <div class="news-card-content">
-                            
-                            <span href="Tree-Week.html"  class="news-tag">News</span>
-
+                            <span class="news-tag">News</span>
                             <h3 class="news-card-title">Campus Green Initiative Launch Event</h3>
                         </div>
-                    </article>
+                    </a>
                 </div>
             </div>
         </section>
@@ -111,7 +127,7 @@
 
         <section id="courses" class="courses">
             <div class="container">
-                <h2>Explore Our Courses</h2>
+                <h2 class="section-title">Explore Our Courses</h2>
                 <div class="course-filters">
                     <button class="filter-btn active" data-filter="all">All</button>
                     <button class="filter-btn" data-filter="science">Science</button>
@@ -119,55 +135,55 @@
                     <button class="filter-btn" data-filter="technology">Technology</button>
                 </div>
                 <div class="courses-grid">
-                    <a href="mathematics.html" class="course-card course-color-1" data-category="science">
-                        <div class="course-icon math" aria-hidden="true"></div>
+                    <a href="mathematics.html" class="course-card course-color-1 mathematics-course" data-category="science">
+                        <div class="course-image">
+                            <img src="img/math cover.jpeg" alt="Mathematics">
+                        </div>
                         <h3>Mathematics</h3>
                         <p>Explore the world of numbers and equations</p>
                     </a>
-                    <a href="physics.html" class="course-card course-color-2" data-category="science">
-                        <div class="course-icon physics" aria-hidden="true"></div>
+                    <a href="physics.html" class="course-card course-color-2 physics-course" data-category="science">
+                        <div class="course-image">
+                            <img src="img/Physics-cover.jpeg" alt="Physics">
+                        </div>
                         <h3>Physics</h3>
                         <p>Uncover the laws that govern our universe</p>
                     </a>
-                    <a href="arabic.html" class="course-card course-color-3" data-category="language">
-                        <div class="course-icon arabic" aria-hidden="true"></div>
+                    <a href="arabic.html" class="course-card course-color-3 arabic-course" data-category="language">
+                        <div class="course-image">
+                            <img src="img/Arabic-cover.jpeg" alt="Arabic Language">
+                        </div>
                         <h3>Arabic Language</h3>
                         <p>Master the art of Arabic communication</p>
                     </a>
-                    <a href="english.html" class="course-card course-color-4" data-category="language">
-                        <div class="course-icon english" aria-hidden="true"></div>
-                        <h3>English Language</h3>
-                        <p>Enhance your global communication skills</p>
-                    </a>
-                    <a href="national-edu.html" class="course-card course-color-5" data-category="science">
-                        <div class="course-icon national-edu" aria-hidden="true"></div>
-                        <h3>National Education</h3>
-                        <p>Learn about our nation's history and values</p>
-                    </a>
-                    <a href="islamic.html" class="course-card course-color-1" data-category="science">
-                        <div class="course-icon islamic" aria-hidden="true"></div>
-                        <h3>Islamic Education</h3>
-                        <p>Deepen your understanding of Islamic principles</p>
-                    </a>
-                    <a href="cloud-computing.html" class="course-card course-color-2" data-category="technology">
-                        <div class="course-icon cloud" aria-hidden="true"></div>
+                    
+                   
+                 
+                    <a href="cloud-computing.html" class="course-card course-color-2 cloud-computing-course" data-category="technology">
+                        <div class="course-image">
+                            <img src="img/Cloud-cover.jpg" alt="Cloud Computing">
+                        </div>
                         <h3>Cloud Computing</h3>
                         <p>Master the future of digital infrastructure</p>
                     </a>
-                    <a href="chemistry.html" class="course-card course-color-3" data-category="science">
-                        <div class="course-icon chemistry" aria-hidden="true"></div>
+                    <a href="chemistry.html" class="course-card course-color-3 chemistry-course" data-category="science">
+                        <div class="course-image">
+                            <img src="img/chm-cover.jpg" alt="Chemistry">
+                        </div>
                         <h3>Chemistry</h3>
                         <p>Explore the building blocks of matter</p>
                     </a>
-                    <a href="iot.html" class="course-card course-color-4" data-category="technology">
-                        <div class="course-icon iot" aria-hidden="true"></div>
+                    <a href="iot.html" class="course-card course-color-4 iot-course" data-category="technology">
+                        <div class="course-image">
+                            <img src="img/IoT-cover.jpeg" alt="Internet of Things">
+                        </div>
                         <h3>Internet of Things</h3>
                         <p>Connect the physical and digital worlds</p>
                     </a>
                 </div>
             </div>
         </section>
-
+             
 
         <section id="blog" class="blog">
             <div class="container">
@@ -175,43 +191,20 @@
                 <div class="blog-posts">
                     <article class="blog-post">
                         <div class="blog-content">
-                            <h3>My Journey in Computer Science</h3>
+                            <h3>My Journey in NCST</h3>
                             <p class="post-meta">By Fahad Mustafa • <time datetime="2024-11-15">November 15, 2024</time></p>
-                            <p>Discovering the world of cloud computing and networking has been an incredible experience at NCST...</p>
+                            <p>My journey at NCST has been a mix of finding my way in the first year, facing doubts and challenges in the second year, and discovering my passion and excelling in cloud computing during my third year, all while cherishing the friendships and lessons that shaped me along the way.</p>
                             <a href="blogf.html" class="read-more">Read More</a>
                         </div>
                     </article>
-                    <!-- More blog posts can be added here -->
+                    
                     <article class="blog-post">
                         <div class="blog-content">
-                            <h3>My Journey in Computer Science</h3>
-                            <p class="post-meta">By Fahad Mustafa • <time datetime="2024-11-15">November 15, 2024</time></p>
-                            <p>Discovering the world of cloud computing and networking has been an incredible experience at NCST...</p>
-                            <a href="blogf.html" class="read-more">Read More</a>
-                        </div>
-                    </article>
-                    <article class="blog-post"> <!-- Fixed opening tag -->
-                        <div class="blog-content">
-                            <h3>My Journey in Computer Science</h3>
-                            <p class="post-meta">By Fahad Mustafa • <time datetime="2024-11-15">November 15, 2024</time></p>
-                            <p>Discovering the world of cloud computing and networking has been an incredible experience at NCST...</p>
-                            <a href="blogf.html" class="read-more">Read More</a>
-                        </div>
-                    </article>
-                    <article class="blog-post"> <!-- Fixed opening tag -->
-                        <div class="blog-content">
-                            <h3>My Journey in Computer Science</h3>
-                            <p class="post-meta">By Fahad Mustafa • <time datetime="2024-11-15">November 15, 2024</time></p>
-                            <p>Discovering the world of cloud computing and networking has been an incredible experience at NCST...</p>
-                            <a href="blogf.html" class="read-more">Read More</a>
-                        </div>
-                    </article>
-                    <article class="blog-post"> <!-- Fixed opening tag -->
-                        <div class="blog-content">
-                            <h3>My Journey in Computer Science</h3>
-                            <p class="post-meta">By Fahad Mustafa • <time datetime="2024-11-15">November 15, 2024</time></p>
-                            <p>Discovering the world of cloud computing and networking has been an incredible experience at NCST...</p>
-                            <a href="blogf.html" class="read-more">Read More</a>
+                            <h3>My experience in NCST</h3>
+                            <p class="post-meta">By Abdullah Asghar • <time datetime="2024-11-10">November 10, 2024</time></p>
+                            <p>
+                                My blog shares my transformative journey at NCST, highlighting personal growth, overcoming challenges in coding and cloud computing, and the impact of extracurricular activities on my development.</p>
+                            <a href="blogA.html" class="read-more">Read More</a>
                         </div>
                     </article>
                 </div>
@@ -231,7 +224,9 @@
             </div>
         </div>
     </footer>
-
-    <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" defer></script>
+    <script src="script.js"></script>
 </body>
 </html>

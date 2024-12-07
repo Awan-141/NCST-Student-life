@@ -1,0 +1,196 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <header class="main-header">
+        <nav class="main-nav">
+            <div class="logo">
+                <img src="img/nvtc.png" alt="NCST Logo">
+                
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#specializations">Specializations</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#blog">Student Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <title>Tree Week Initiative</title>
+    <style>
+        /* Header and Navigation */
+  .main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: var(--transition);
+  }
+  
+  .main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .logo img {
+    width: 400px;
+    height: 50px;
+    object-fit: contain;
+  }
+  
+  .logo span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  
+  .nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+  }
+  
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary);
+    transition: var(--transition);
+  }
+  
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+  
+  .mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  
+  .mobile-menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: var(--primary);
+    margin: 5px 0;
+    transition: var(--transition);
+  }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .news-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .news-title {
+            font-size: 32px;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+        .news-meta {
+            font-size: 14px;
+            color: #666;
+        }
+        .news-content {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #444;
+        }
+        .news-content p {
+            margin-bottom: 20px;
+        }
+        .highlight {
+            background-color: #e6f3ff;
+            padding: 20px;
+            border-left: 4px solid #1e3a8a;
+            margin: 30px 0;
+        }
+        .back-to-home {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #1e3a8a;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .back-to-home:hover {
+            background-color: #152c6e;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- News Header -->
+        <header class="news-header">
+            <h1 class="news-title">Tree Week Initiative in Bahrain</h1>
+            <div class="news-meta">
+                <span>Published on: <time datetime="2024-10-20">October 20, 2024</time></span>
+                
+                
+            </div>
+        </header>
+        
+        <!-- News Content -->
+        <div class="news-content">
+            <p>In support of the National Action Plan initiatives to achieve carbon neutrality announced by His Majesty King Hamad bin Isa Al Khalifa, the King of Bahrain, and under the patronage of His Royal Highness Prince Salman bin Hamad Al Khalifa, the Crown Prince and Prime Minister, who launched Tree Week to be held in the third week of October each year, Dr. Abdullah bin Nasser Al Nuaimi, CEO of the Nasser Scientific and Technical Center, planted several trees at the center's headquarters, with the participation of several officials and employees.</p>
+            
+            <p>Tree Week aims to enhance the results of the afforestation plan, which aims to double the number of trees to 3.6 million by 2035, in line with Bahrain's commitments to the United Nations Framework Convention on Climate Change.</p>
+            
+            <p>In this context, Dr. Abdullah bin Nasser Al Nuaimi, CEO of the Nasser Scientific and Technical Center, emphasized that the center strives to contribute to raising environmental awareness and encouraging afforestation to achieve Bahrain's goals of reaching "net zero" carbon emissions by 2060.</p>
+            
+            <p>Al Nuaimi pointed out that the Tree Week initiative launched by the Crown Prince and Prime Minister will effectively inspire institutions and the community to contribute to reducing carbon emissions, improving air quality, and strengthening biodiversity, which will positively reflect on the quality of life and sustainable environmental development for future generations.</p>
+        </div>
+
+        <a href="index.html" class="back-to-home">Back to Home</a>
+    </div>
+
+</body>
+</html>

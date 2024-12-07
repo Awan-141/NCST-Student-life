@@ -1,81 +1,261 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NCST Student Blog</title>
-    <link rel="stylesheet" href="blogf.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Fahad's Journey at NCST</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --background: #f4f7f9;
+            --text: #34495e;
+            --text-light: #7f8c8d;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--secondary);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 120px auto 50px;
+            padding: 2rem;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: 10px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .title h1 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .title p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .journey-content {
+            position: relative;
+        }
+
+        .year-section {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .year-section:last-child {
+            border-bottom: none;
+        }
+
+        .year-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .year-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .year-content p {
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .container {
+                margin-top: 100px;
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <nav>
-        <div class="container">
-            <div class="logo">
-                <img src="/placeholder.svg?height=50&width=50" alt="Logo">
-                <h1>NCST Student Blog</h1>
-            </div>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <img src="img/nvtc.png" alt="NCST Logo">
+               
+            </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#specializations">Specializations</a></li>
-                <li><a href="index.html#courses">Courses</a></li>
-                <li><a href="#blogf.html">Student Blog</a></li>
+                <li><a href="index.html#Courses">Courses</a></li>
+                <li><a href="index.html#Student Blog">Student Blog</a></li>
             </ul>
-        </div>
-    </nav>
-
-    <header class="hero">
-        <div class="container">
-            <h2>Welcome to NCST Student Blog</h2>
-            <p>Exploring ideas, sharing knowledge, and inspiring minds.</p>
-        </div>
+        </nav>
     </header>
 
-    <main class="container">
-        <article class="blog-post">
-            <img src="/placeholder.svg?height=300&width=800" alt="Blog post image" class="blog-image">
-            <h2>The Art of cloud computing</h2>
-            <p class="post-meta">Posted on May 15, 2023 by very big monster</p>
-            <p>Learning cloud computing at NCST is amazing. The hands-on labs and supportive teachers make complex concepts easier to grasp.</p>
-            <p>As a student, I feel confident about my future. The up-to-date curriculum and guest lectures from industry professionals are truly inspiring.</p>
-            <a href="#" class="read-more">Read More</a>
-        </article>
-
-        <section class="comments-section">
-            <h3>Comments</h3>
-            <div class="comment-box">
-                <img src="/placeholder.svg?height=50&width=50" alt="User 1 avatar" class="user-avatar">
-                <div class="comment-content">
-                    <p><strong>User 1:</strong> Great post! I found the tips on overcoming writer's block particularly helpful.</p>
-                    <button onclick="location.href='user1.html'" class="submit-btn">Read more</button>
-                </div>
-            </div>
-            <div class="comment-box">
-                <img src="/placeholder.svg?height=50&width=50" alt="User 2 avatar" class="user-avatar">
-                <div class="comment-content">
-                    <p><strong>User 2:</strong> Very informative, thanks! I'm excited to try out some of these writing exercises.</p>
-                    <button onclick="location.href='user2.html'" class="submit-btn">Read more</button>
-                </div>
-            </div>
-            <div class="comment-box">
-                <img src="/placeholder.svg?height=50&width=50" alt="User 3 avatar" class="user-avatar">
-                <div class="comment-content">
-                    <p><strong>User 3:</strong> I learned a lot from this. Looking forward to more posts on creative writing techniques!</p>
-                    <button onclick="location.href='user3.html'" class="submit-btn">Read more</button>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 NCST. All rights reserved.</p>
-            <ul class="social-links">
-                <li><a href="#">Moodle</a></li>
-                <li><a href="#">Linkedin</a></li>
-                <li><a href="#">Instagram</a></li>
-            </ul>
+    <div class="container">
+        <div class="title">
+            <h1>Fahad's Journey at NCST</h1>
+            <p>A Student's Perspective on Growth and Learning</p>
         </div>
-    </footer>
+
+        <div class="journey-content">
+            <div class="year-section">
+                <h2 class="year-title">First Year</h2>
+                <h3 class="year-subtitle">Finding My Way</h3>
+                <div class="year-content">
+                    <p>At first when I joined NCST I wasn't a smart student really, I was just playing around, and I didn't really study much. At the first day I thought I was in another class because they made a mistake when distributing the papers that have the class name and NV, anyway at the end I found my class, all of them were good people and I had a lot of fun in the first year I was always walking around and playing ( no studying to be honest ) and I still got good marks but not good enough to be at the honor list.</p>
+                    <p>In the second semester classes have changed and they put me in an even better class full of fun people, full of jokes and some fights and a whole lot else. End of second semester it was the time for us to chose our majors and I chose cloud computing, while I wasn't really sure if it's the best choice for me, not most people wanted that major when it came to student but I thought I would really do well in it and after some consideration I chose it as my first choice and with that the first year ends.</p>
+                </div>
+            </div>
+
+            <div class="year-section">
+                <h2 class="year-title">Second Year</h2>
+                <h3 class="year-subtitle">Doubts and Challenges</h3>
+                <div class="year-content">
+                    <p>When the second year started it was time to get started with our majors. Most of our class 11.ccp didn't even want to be there and that really made me doubt my choices, but I still moved on. In that year the class was also fun. After that nothing really happened, it was just all fun and there was nothing else.</p>
+                    <p>In the second semester Ramadan came in the middle of the year when the heat stroke it hardest. I didn't really try doing anything in that heat mostly in PE class I hid in the locker room and slept on the floor, or when I didn't need to sleep I just watched anime. At least the second year was decent between fun, and fight and it ended with me getting a good mark in finals.</p>
+                </div>
+            </div>
+
+            <div class="year-section">
+                <h2 class="year-title">Third Year</h2>
+                <h3 class="year-subtitle">Finding My Path</h3>
+                <div class="year-content">
+                    <p>We are coming now to this year, the third year started pretty good and it's when I knew that I didn't make a mistake choosing cloud computing as a major. In this year we meet one of the best English teachers mister Scott, to be honest he is the best English teacher that have ever to teach me, even though he cursed me in Pilipino.</p>
+                    <p>This year wasn't the best or the worst, it was in the middle. In this year I really didn't doubt one second my choice of cloud computing and now I'm one of the best cloud computing students in my class and next week I'm getting the cloud practitioner certification.</p>
+                    <p>Well, that's where we are now, we will see what will happen this year and how it will end.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const header = document.querySelector('.header');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
+        function revealContent() {
+            const sections = document.querySelectorAll('.year-section');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (sectionTop < windowHeight - 100) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        const sections = document.querySelectorAll('.year-section');
+        sections.forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+
+        window.addEventListener('scroll', revealContent);
+        window.addEventListener('load', revealContent);
+    </script>
 </body>
 </html>

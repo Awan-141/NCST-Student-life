@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fahad's Journey at NCST</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+               :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --background: #f4f7f9;
+            --text: #34495e;
+            --text-light: #7f8c8d;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--secondary);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 120px auto 50px;
+            padding: 2rem;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: 10px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .title h1 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .title p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .journey-content {
+            position: relative;
+        }
+
+        .year-section {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .year-section:last-child {
+            border-bottom: none;
+        }
+
+        .year-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .year-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .year-content p {
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .container {
+                margin-top: 100px;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <img src="img/nvtc.png" alt="NCST Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#specializations">Specializations</a></li>
+                <li><a href="index.html#Courses">Courses</a></li>
+                <li><a href="index.html#Student Blog">Student Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="title">
+            <h1>Fahad's Journey at NCST</h1>
+            <p>A Student's Perspective on Growth and Learning</p>
+        </div>
+
+        <div class="journey-content">
+            <div class="year-section">
+                <h2 class="year-title">My Experience at NCST</h2>
+                <h3 class="year-subtitle">An Introduction</h3>
+                <div class="year-content">
+                    <p>The NCST has been nothing short of incredible. When I first began, I had been excited to learn new things and a little scared of what lay ahead.</p>
+                    <p>My first day was a mix of anxiety and excitement. I didn’t know anyone, and the new environment was intimidating. However, I soon made lots of friends, which made my time at NCST much better.</p>
+                </div>
+            </div>
+
+            <div class="year-section">
+                <h3 class="year-subtitle">Academic Journey</h3>
+                <div class="year-content">
+                    <p>Coding was one of the most difficult challenges I had to overcome. In high school, I found it tough and stressful. However, NCST's pleasant atmosphere and excellent instruction helped me tackle these obstacles. I learned a lot, gained confidence in coding, and started to enjoy it.</p>
+                    <p>Cloud computing was another interesting course I took. While the practical labs were engaging, I initially found the theoretical aspects challenging. Yet, I consider it one of the highlights of my learning journey as it introduced me to cutting-edge technology.</p>
+                </div>
+            </div>
+
+            <div class="year-section">
+                <h3 class="year-subtitle">Extracurricular Activities</h3>
+                <div class="year-content">
+                    <p>Outside academics, I participated in various extracurricular activities, which were both fun and enriching. These activities taught me valuable qualities like cooperation and leadership.</p>
+                    <p>One of my favorite memories was participating in NCST's yearly tournaments, which were both entertaining and competitive. Additionally, the NASA Space Apps Challenge allowed me to apply my skills in real-world scenarios and broaden my perspective.</p>
+                </div>
+            </div>
+
+            <div class="year-section">
+                <h3 class="year-subtitle">Looking Ahead</h3>
+                <div class="year-content">
+                    <p>As I continue my journey at NCST, I am confident that the lessons I’ve learned, both academically and personally, will help me achieve my goals. The experience has been transformative, and I look forward to what the future holds.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const header = document.querySelector('.header');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
+        function revealContent() {
+            const sections = document.querySelectorAll('.year-section');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (sectionTop < windowHeight - 100) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        const sections = document.querySelectorAll('.year-section');
+        sections.forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+
+        window.addEventListener('scroll', revealContent);
+        window.addEventListener('load', revealContent);
+    </script>
+</body>
+</html>

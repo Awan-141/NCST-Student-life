@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCST and AC Milan Cooperation</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #3182ce;
+            --text: #333;
+            --background: #f9f9f9;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background);
+            color: var(--text);
+        }
+
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo img {
+            width: 300px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--primary);
+            margin: 5px 0;
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 120px auto 40px;
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text);
+            margin: 20px 0;
+        }
+
+        .image-placeholder, .img {
+            width: 100%;
+            max-height: 500px;
+            margin: 30px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-placeholder img, .img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .image-placeholder img:hover, .img img:hover {
+            transform: scale(1.05);
+        }
+
+        .highlight {
+            background-color: #e6f3ff;
+            padding: 25px;
+            border-left: 5px solid var(--primary);
+            margin: 30px 0;
+            font-size: 17px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .container {
+                margin: 100px 10px 20px;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-nav">
+            <div class="logo">
+                <img src="img/nvtc.png" alt="NCST Logo">
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#specializations">Specializations</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#blog">Student Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Providing a Scientific and Athletic Environment Open to International Sports Experiences</h1>
+        <h1>Nasser Scientific and Technical Center Signs Cooperation Agreement with Italian Football Club AC Milan</h1>
+
+        <div class="image-placeholder">
+            <img src="img/NCST-CEO-Bahrain-Ambassador-to-Italy-AC-Milan-Legends-1.jpg" alt="International Partnership" loading="lazy">
+        </div>
+
+        <p>In a significant step to enhance school sports education and professional football training in the Kingdom of Bahrain, the Nasser Scientific and Technical Center signed an exclusive cooperation agreement with the Italian football club AC Milan at the club's headquarters in Milan, Italy. The agreement was signed by Dr. Abdullah bin Nasser Al Nuaimi, CEO of the Nasser Scientific and Technical Center, and Mr. Michael Utley, Commercial Director of the Italian club, in the presence of His Excellency Ambassador Osama bin Abdullah Al-Absi, Ambassador of the Kingdom of Bahrain to Italy.</p>
+
+        <p>The agreement aims to strengthen joint work between the center and the Rossoneri club in the field of sports education, through the integration of both parties and unifying efforts in creating sports talents by translating the philosophy of the Nasser Scientific and Technical Center in combining academic formation and sports training under the umbrella of secondary school education, in an initiative that is the first of its kind in the Kingdom of Bahrain and the region.</p>
+
+        <p>The agreement includes several advantages and expertise that the prestigious Italian club will transfer to participants in the sports education track (Sports and Business Management) at the Nasser Scientific and Technical Center by supporting the development of sports culture among youth through specialized educational and training curricula, and refining and highlighting sports talents.</p>
+
+        <div class="highlight">
+            <p>Dr. Abdullah Nasser Al Nuaimi emphasized that the Nasser Scientific and Technical Center places great importance on the sports sector and the creation of professional players through the correct foundation of talented youth who are passionate about football in particular, within a scientific and methodological framework outlined by school education through the launch of a unique educational track, which is the Sports and Business Management track.</p>
+            <p>Al Nuaimi added that signing this agreement with AC Milan will contribute to achieving the center's goals of supplying Bahraini sports with star-makers, including players, coaches, and administrators with a professional sports mindset, by forming them in a scientific and athletic environment open to regional and international experiences, enhancing their launch towards global recognition.</p>
+        </div>
+
+        <div class="img">
+            <img src="img/AC 1.jpeg" alt="International Partnership" loading="lazy">
+        </div>
+
+        <p>For his part, Mr. Michael Utley, Commercial Director of AC Milan, stated, "We are excited to announce the launch of the AC Milan Pro Academy in Bahrain in partnership with the Nasser Scientific and Technical Center. This initiative reflects our ongoing commitment to developing young talents and expanding our presence in the Middle East, a region with which we have strong ties, especially with the opening of Casa Milan in Dubai last year. Through this partnership, we aim to create a world-class environment for aspiring players to develop their potential both on and off the field. We look forward to seeing the amazing talents that will emerge from this exciting project."</p>
+    </div>
+
+    <script>
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
+

@@ -1,25 +1,16 @@
-/* Base Styles */
 body {
-    font-family: 'Poppins', Arial, sans-serif; /* Use a more modern font */
-    line-height: 1.7; /* Increased line height for better readability */
-    color: #333;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4; /* Light background for better contrast */
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Navigation Styles */
 nav {
-    background-color: #2c3e50; /* Dark Blue */
-    color: white;
-    padding: 1rem 5%;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
 }
 
 .logo {
@@ -28,163 +19,86 @@ nav {
 }
 
 .logo img {
-    height: 50px;
+    height: 40px;
     margin-right: 10px;
 }
 
 .nav-links {
+    display: flex;
     list-style: none;
-    padding: 0;
 }
 
 .nav-links li {
-    display: inline;
-    margin-left: 1.5rem;
+    margin-left: 20px;
 }
 
 .nav-links a {
-    color: white;
+    color: #fff;
     text-decoration: none;
-    transition: color 0.3s ease; /* Smooth color transition */
 }
 
-.nav-links a:hover {
-    color: #f5ce42; /* Light Yellow on hover */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
-/* Headings */
-h1, h2, h3 {
-    color: #2c3e50; /* Dark Blue for headings */
-    margin-bottom: 1rem; /* Space below headings */
+h1, h2, h3, h4 {
+    color: #333;
 }
 
-/* Section Styles */
 .course-content, .study-guides, .practice-game {
-    margin-bottom: 40px;
-    background: white; /* White background for sections */
-    border-radius: 8px; /* Rounded corners */
-    padding: 20px; /* Padding inside sections */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 2rem;
 }
 
-/* List Styles */
-ul {
+ul, ol {
     padding-left: 20px;
 }
 
 a {
-    color: #3498db; /* Blue links */
+    color: #007bff;
     text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline; /* Underline on hover */
+    text-decoration: underline;
 }
 
-/* Math Practice Dashboard */
-.math-practice-dash {
-    background-color: #f4f4f4; /* Light Gray */
-    border-radius: 8px;
+#quiz-container {
+    background-color: #f4f4f4;
+    border-radius: 5px;
     padding: 20px;
     margin-top: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Problem Container */
-.problem-container {
-    margin-top: 20px;
-}
-
-.question {
-    font-weight: bold;
+#options {
     margin-bottom: 10px;
 }
 
-/* Options */
-.options {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.option {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* Input Styles */
-.answer-input {
-    width: 100%;
-    padding: 10px; /* Increased padding for better usability */
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: border-color 0.3s ease; /* Smooth border transition */
-}
-
-.answer-input:focus {
-    border-color: #3498db; /* Change border color on focus */
-    outline: none; /* Remove default outline */
-}
-
-/* Button Container */
-.button-container {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-/* Button Styles */
-.submit-btn, .next-btn {
-    padding: 10px 20px; /* Increased padding */
-    background-color: #3498db; /* Blue button */
-    color: white;
+#submit-btn {
+    background-color: #007bff;
+    color: #fff;
     border: none;
-    border-radius: 4px;
+    padding: 10px 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
 }
 
-.submit-btn:hover, .next-btn:hover {
-    background-color: #2980b9; /* Darker blue on hover */
-    transform: translateY(-2px); /* Lift effect on hover */
+#submit-btn:hover {
+    background-color: #0056b3;
 }
 
-/* Feedback Styles */
-.feedback {
+#result {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
-.feedback.correct {
-    color: #27ae60; /* Green for correct feedback */
-}
-
-.feedback.incorrect {
-    color: #c0392b; /* Red for incorrect feedback */
-}
-
-.explanation {
-    background-color: #ecf0f1; /* Light Gray for explanations */
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 20px;
-}
-
-/* Score Styles */
-.score {
-    font-weight: bold;
-    color: #2c3e50; /* Dark Blue for scores */
-}
-
-/* Footer Styles */
 footer {
-    background-color: #2c3e50; /* Dark Blue */
-    color: white;
+    background-color: #333;
+    color: #fff;
     text-align: center;
     padding: 1rem;
-    margin-top: 2rem;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for footer */
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
+

@@ -20,15 +20,90 @@
   --halogen-color: #ecc94b;
 }
 
-.dark-mode {
-  --primary-color: #2d3748;
-  --secondary-color: #4a5568;
-  --accent-color: #63b3ed;
-  --background-color: #1a202c;
-  --text-color: #f7fafc;
-  --border-color: #2d3748;
-  --card-background: #2d3748;
+/* Header and Navigation */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: var(--transition);
 }
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo img {
+  width: 400px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.logo span {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--secondary);
+  transition: var(--transition);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: var(--primary);
+  margin: 5px 0;
+  transition: var(--transition);
+}
+
 
 * {
   margin: 0;
@@ -42,6 +117,8 @@ body {
   color: var(--text-color);
   background-color: var(--background-color);
   transition: background-color 0.3s, color 0.3s;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Header and Navigation */
@@ -76,15 +153,20 @@ header {
 /* Periodic Table Styles */
 .periodic-table-container {
   display: grid;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: 1fr;
   gap: 1rem;
   margin: 2rem 0;
 }
 
+@media (min-width: 768px) {
+  .periodic-table-container {
+    grid-template-columns: 1fr 300px;
+  }
+}
+
 .periodic-table {
   display: grid;
-  grid-template-columns: repeat(18, 1fr);
-  grid-template-rows: repeat(7, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
   gap: 2px;
   padding: 1rem;
   background-color: var(--card-background);
@@ -240,36 +322,48 @@ header {
 /* Responsive Design */
 @media (max-width: 768px) {
   .periodic-table-container {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 
   .nav-links {
-      display: none;
+    display: none;
   }
 
   .nav-links.show {
-      display: flex;
-      flex-direction: column;
+    display: flex;
+    flex-direction: column;
   }
 
   .mobile-menu-button {
-      display: block;
+    display: block;
   }
 
   .calculator-grid {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+  .section {
+    padding: 1rem;
+  }
+  .element {
+    font-size: 0.7rem;
+  }
+  .element .symbol {
+    font-size: 1rem;
+  }
+  .element .name {
+    font-size: 0.5rem;
   }
 }
 
 /* Animations */
 @keyframes fadeIn {
   from {
-      opacity: 0;
-      transform: translateY(10px);
+    opacity: 0;
+    transform: translateY(10px);
   }
   to {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -393,23 +487,31 @@ footer {
 /* Print Styles */
 @media print {
   header {
-      position: static;
+    position: static;
   }
 
   .theme-toggle,
   .mobile-menu-button,
   .simulator,
   #atomic-structure-container {
-      display: none;
+    display: none;
   }
 
   body {
-      background-color: white;
-      color: black;
+    background-color: white;
+    color: black;
   }
 
   .section {
-      break-inside: avoid;
-      page-break-inside: avoid;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 }
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+

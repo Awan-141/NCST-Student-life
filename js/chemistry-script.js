@@ -197,53 +197,7 @@ function showElementDetails(element) {
     detailsContainer.style.display = 'block';
 }
 
-function initMoleCalculator() {
-    const container = document.getElementById('mole-calculator');
-    if (!container) return;
 
-    const template = `
-        <div class="calculator-grid">
-            <div class="input-group">
-                <label for="mass-input">Mass (g)</label>
-                <input type="number" id="mass-input" step="0.001" min="0">
-            </div>
-            <div class="input-group">
-                <label for="element-select">Element</label>
-                <select id="element-select">
-                    ${elements.map(el => `
-                        <option value="${el.atomicMass}">${el.name} (${el.symbol})</option>
-                    `).join('')}
-                </select>
-            </div>
-            <div class="result" id="mole-result"></div>
-        </div>
-    `;
-
-    container.innerHTML = template;
-
-    const massInput = container.querySelector('#mass-input');
-    const elementSelect = container.querySelector('#element-select');
-    const result = container.querySelector('#mole-result');
-
-    function calculate() {
-        const mass = parseFloat(massInput.value);
-        const atomicMass = parseFloat(elementSelect.value);
-        
-        if (mass && atomicMass) {
-            const moles = mass / atomicMass;
-            result.textContent = `Number of moles: ${moles.toFixed(4)}`;
-            result.classList.add('active');
-        } else {
-            result.textContent = 'Enter mass and select element';
-            result.classList.remove('active');
-        }
-    }
-
-    massInput.addEventListener('input', calculate);
-    elementSelect.addEventListener('change', calculate);
-}
-
-// ... (keep other calculator functions with similar improvements)
 
 function initQuiz() {
     const container = document.getElementById('quiz');
